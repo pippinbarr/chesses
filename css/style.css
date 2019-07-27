@@ -1,0 +1,152 @@
+/*********************************************
+
+This is the style file for this project.
+
+**********************************************/
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.attack-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  color: yellow;
+  font-family: Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+#game {
+  display: none;
+}
+
+#menu {
+  color: yellow;
+  font-family: Helvetica, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  -webkit-transform: translate3d(0,0,0)
+}
+
+#rip-wrapper {
+  margin-top: 2em;
+  display: none;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+
+.game-over-header {
+  color: yellow;
+  font-size: 2em;
+}
+
+#congratulations, #rip {
+  display: none;
+}
+
+#rip-message, #click-anywhere {
+  margin-top: 2em;
+  color: grey;
+}
+
+.option {
+  /* padding-top: 1em; */
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* MOBILE? */
+@media only screen and (max-device-width: 768px) {
+  body {
+    font-size: 1.75em;
+  }
+
+  #wrapper {
+    width: 100vw;
+    margin: 0 auto;
+  }
+
+  #board {
+    margin: 0 auto;
+    width: 100vw;
+  }
+
+  .board-b72b1 {
+    width: 100vw;
+  }
+}
+
+/* DESKTOP and IPAD? */
+@media only screen and (min-device-width: 768px) {
+  #wrapper {
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  #board {
+    margin: 0 auto;
+    width: 400px;
+  }
+
+  .board-b72b1 {
+    width: 400px;
+  }
+}
+
+#pgn {
+  margin-bottom: 10px;
+  font-family: Helvetica, sans-serif;
+  font-size: 1em;
+  color: grey;
+  text-align: left;
+  margin-top: 10px;
+  height: 3em;
+}
+
+#title {
+  font-family: Helvetica, sans-serif;
+  font-size: 5em;
+  color: yellow;
+  text-align: center;
+  margin-top: 20px;
+  -webkit-transform: translate3d(0,0,0)
+
+}
+
+#author {
+  font-family: Helvetica, sans-serif;
+  font-size: 1em;
+  color: grey;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.author-link {
+  color: yellow;
+  cursor: pointer;
+}
+
+/*
+.board-b72b1 {
+  border: none;
+}
+
+.white-1e1d7 {
+  background-color: #AA0000;
+}
+
+.black-3c85d {
+  background-color: #00AA00;
+} */
+
+.highlight1-32417 {
+  -webkit-box-shadow:inset 0 0 3px 3px red;
+  box-shadow: inset 200px 200px 0px 200px rgba(255,255,0,0.75);
+}

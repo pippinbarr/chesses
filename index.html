@@ -1,58 +1,56 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
-	<title>Chesss</title>
+  <title>
+    Chesss
+  </title>
 
-	<script src="js/phaser.min.js"></script>
-	<script src="js/swipe.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
 
-	<script src="Boot.js"></script>
-	<script src="Preloader.js"></script>
-	<script src="Menu.js"></script>
+  <!-- CSS stylesheet(s) -->
+  <link rel="stylesheet" href="css/chessboard-1.0.0.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="js/libraries/jquery.min.js"></script>
 
+  <!-- <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" /> -->
+
+  <link rel="stylesheet" type="css" href="css/jquery-ui.min.css" />
+  <script src="js/libraries/jquery-ui.min.js"></script>
+
+  <script src="js/libraries/howler.min.js"></script>
+
+  <script src="js/libraries/chess.js"></script>
+  <script src="js/libraries/chessboard-1.0.0.min.js"></script>
+
+  <!-- My script(s) -->
+  <script src="js/script.js"></script>
 </head>
-<style>
-body {
-	margin: 0;
-}
-</style>
+
 <body>
 
-	<div id="game"></div>
+  <div id="wrapper">
+    <div id="game">
+      <div id="board"></div>
+    </div>
+  </div>
+  <div id="title">CHESSS</div>
+  <div id="author">by <span class="author-link" id="pippin">Pippin Barr</span></div>
+  <div id="menu">
+    <p><div class="option one-player">GRAVITY</div></p>
+  </div>
+</div>
 
-	<script type="text/javascript">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-	window.onload = function() {
-
-		//	Create your Phaser game and inject it into the gameContainer div.
-		//	We did it in a window.onload event, but you can do it anywhere (requireJS load, anonymous function, jQuery dom ready, - whatever floats your boat)
-		var game = new Phaser.Game(480, 640, Phaser.AUTO, 'game');
-
-		//	Add the States your game has.
-		//	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here.
-		game.state.add('Boot', BasicGame.Boot);
-		game.state.add('Preloader', BasicGame.Preloader);
-		game.state.add('Menu', BasicGame.Menu);
-		game.state.add('Snake', BasicGame.Snake);
-
-		//	Now start the Boot state.
-		game.state.start('Boot');
-
-	};
-
-	</script>
-
-
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-90628419-1', 'auto');
-	  ga('send', 'pageview');
-	</script>
+ga('create', 'UA-90628419-1', 'auto');
+ga('send', 'pageview');
+</script>
 
 </body>
+
 </html>
