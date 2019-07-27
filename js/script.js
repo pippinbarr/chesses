@@ -2,7 +2,7 @@
 
 /*****************
 
-Chesss
+Chesses
 Pippin Barr
 
 ******************/
@@ -21,7 +21,6 @@ let firstClick = true;
 let board;
 let game;
 let from;
-let lastMove = '';
 
 let config = {
   showNotation: false,
@@ -41,18 +40,9 @@ function setup() {
   board.position(game.fen(),false);
 
   from = null;
-  lastMove = null
-
-  //setupTestbed();
 
   $('.square-55d63').on('click', squareClicked);
   $('.option').on('click', menuClicked);
-  $('#jonathan').on('click',() => {
-    window.open('https://jonathanlessard.net/','_blank');
-  });
-  $('#pippin').on('click',() => {
-    window.open('https://www.pippinbarr.com/','_blank');
-  });
 }
 
 function squareClicked (event) {
@@ -61,25 +51,16 @@ function squareClicked (event) {
   let piece = $(this).find('.piece-417db');
   let validPiece = (piece.length !== 0 && piece.attr('data-piece').indexOf(game.turn()) !== -1);
 
+  // Check if they clicked on a piece they could conceivably move
   if (validPiece) {
-    if (firstClick) {
-      $('#title').hide();
-      $('#author').hide();
-      firstClick = false;
-    }
     highlightMoves(square);
     highlight(square);
   }
-
+  // Otherwise check if they clicked on a square they could move the current piece to
   else if (from !== null && $(event.currentTarget).hasClass('highlight1-32417')) {
     let to = $(event.currentTarget).attr('data-square');
 
-    if (game.turn() === 'w') {
-      moveWhite({from: from, to: to});
-    }
-    else {
-      moveBlack({from: from, to: to});
-    }
+    makeMove({from: from, to: to});
   }
 }
 
@@ -121,27 +102,6 @@ function clearHighlights () {
   $('.square-55d63').removeClass(`highlight1-32417`);
 }
 
-function moveWhite(move) {
-  if (gameOver) return;
-
-  move.promotion = 'q';
-
-  makeMove(move,false);
-
-  if (gameOver) return;
-  clearHighlights();
-}
-
-function moveBlack(move) {
-  if (gameOver) return;
-
-  makeMove(move,false);
-  clearHighlights();
-
-  if (gameOver) return;
-}
-
-
 function undo() {
   game.undo();
   states.shift();
@@ -149,6 +109,7 @@ function undo() {
 
 function makeMove(move,simulate) {
 
+  move.promotion = 'q';
   move = game.move(move);
 
   if (move === null) {
@@ -166,5 +127,7 @@ function makeMove(move,simulate) {
     else {
       placeSFX.play();
     }
-  },config.moveSpeed)
+  },config.moveSpeed);
+
+  clearHighlights();
 }
