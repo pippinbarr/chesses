@@ -95,3 +95,32 @@ Board laid out in physical space - 100x100m squares? Selection works based on wh
 Any move slides in its direction until stopped by another piece or the edge
 
 ... that's 23.
+
+---
+
+# Return of the Chesses (Monday, 29 July 2019, 10:22AM)
+
+Weirdly I hadn't realised I already started this project two years ago and started doing it again. It was only when I tried to make a new repo called 'chesss' and GitHub told me it already existed that I found out.
+
+In the meantime I made the Chess Edition of the punishment game and ROGESS and so have a bunch more experience with chess.js and chessboard.js. As such I'll be making the variations in that and with those technologies in mind.
+
+I'm also just shooting for simpler more formal variations rather than the wildness of the above. I'll go for 8 since then I can represent a menu on a chess board. Not 64 though.
+
+As such here's my proposed list:
+
+- GRAVITY: board rotated 90º, pieces fall down on each move.
+- M.A.D. (Mutually assured destruction): every capture results in the removal of both pieces
+- MUSIC: game as a tone matrix that keeps playing while you play, each colour an instrument perhaps, or even each piece, or something
+- GRAVES: captures work as an "attack" that leaves the captured piece grey and dead but still in place blocking any moves to that square
+- PAWNS: you have a king and then the entire rest of the board is pawns.
+- COUNTDOWN: each piece has a set number of moves before it vanishes (based on its value, maybe 10x the value? 5?)
+- ICE/SKATES/MOMENTUM: any move continues in the same direction until stopped by the edge of the board or another piece (how would this work with knights? Just diagonals...?)
+- SWAPSIES: pieces swap position instead of capturing, swapping with the king is a win (or just checkmate really)
+- SLOTS: when you choose the piece to move it runs through all possible pieces and then once chosen you can move it like that piece
+- MIRROR: when you move a piece the piece on the mirrored square moves too...? Seems like that won't work.
+
+So that's 10. Plus looking at the 2017 ideas... NOPE. None of them really appeal so I'll stick with the above list.
+
+Next step, really, is "just" to try to build some.
+
+Because I'll almost certainly have to alter chess.js and even chessboard.js, I'll probably need to use the non-minified versions and I'll probably need to find ways to pass flags in so that the modifications don't affect distinct games. Could get ugly? We'll see.
