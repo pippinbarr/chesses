@@ -18,7 +18,7 @@ function setup() {
 
 function menuClicked () {
 
-  chess = new Pawns();
+  chess = new Swaps();
 
   $('#menu').slideUp(500,() => {
     $('#menu').hide();
