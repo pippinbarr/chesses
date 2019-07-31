@@ -38,3 +38,9 @@
 - Issues around trying to play a piece that can't move once it has changed (presumably you should just sacrifice your turn in that instance)
 - Issues around playing a piece that then cannot protect the king in a necessary moment (making check without an available king move very powerful since you can't guarantee that a piece can protect him or capture the attacker)
 - Animate piece randomization right? Like a slot machine?
+
+## Momentum
+
+- Definitely saw some kind of bug with a pawn resurrecting after a move, unsure how to recreate right now
+- Need to think about check/checkmate in this context
+- Should the king slide? I mean... yes.

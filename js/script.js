@@ -38,6 +38,10 @@ function menuClicked () {
     case 'slots':
     chess = new Slots();
     break;
+
+    case 'momentum':
+    chess = new Momentum();
+    break;
   }
 
 

@@ -19,7 +19,7 @@ body {
 
 #menu {
   color: yellow;
-  font-family: Helvetica, sans-serif;
+  font-family: monospace;
   font-size: 2em;
   text-align: center;
   -webkit-transform: translate3d(0,0,0)
@@ -70,7 +70,7 @@ body {
 }
 
 #title {
-  font-family: Helvetica, sans-serif;
+  font-family: monospace;
   font-size: 5em;
   color: yellow;
   text-align: center;
