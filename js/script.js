@@ -34,6 +34,10 @@ function menuClicked () {
     case 'pawns':
     chess = new Pawns();
     break;
+
+    case 'slots':
+    chess = new Slots();
+    break;
   }
 
 

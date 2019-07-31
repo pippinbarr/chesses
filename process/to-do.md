@@ -32,3 +32,9 @@
 - Fix the unrotation
 - Fix the gross animation (animate each piece one by one?)
 - Think about the implications for checkmate etc.
+
+## Slots
+
+- Issues around trying to play a piece that can't move once it has changed (presumably you should just sacrifice your turn in that instance)
+- Issues around playing a piece that then cannot protect the king in a necessary moment (making check without an available king move very powerful since you can't guarantee that a piece can protect him or capture the attacker)
+- Animate piece randomization right? Like a slot machine?
