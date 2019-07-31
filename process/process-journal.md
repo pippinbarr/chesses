@@ -124,3 +124,17 @@ So that's 10. Plus looking at the 2017 ideas... NOPE. None of them really appeal
 Next step, really, is "just" to try to build some.
 
 Because I'll almost certainly have to alter chess.js and even chessboard.js, I'll probably need to use the non-minified versions and I'll probably need to find ways to pass flags in so that the modifications don't affect distinct games. Could get ugly? We'll see.
+
+---
+
+# "Good games" and Legal moves (Wednesday, 31 July 2019, 15:36PM)
+
+Hi there. Thought I ought to at least try writing something here, though thus far the games don't feel thaaaat intense design-wise - perhaps not least of all because this isn't the most research-y project, more an impulse to make more variations on a core game and see what happens.
+
+## "Good games"
+
+I think there's something in here about finding out which games feel interesting and which don't. And further to that, the tension around which games seem like "good games" or at least playable, versus variations that seem clearly broken from the get go and not "worth playing". I think this is tied into the hyper abstract nature of chess - because there's nothing else to grab onto but the act of playing itself, the importance of fairness/balance etc. becomes magnified and it's not so interesting to play unbalanced or clearly flawed variations. Not being a particularly great chess player, it's also just hard for me to look at a variation and know whether it sucks, whether there's a dominant strategy etc. So I think there's something to that.
+
+## Legal moves
+
+The variations definitely mean you need to think through consequences particularly around end conditions like checkmate, and more generally around the idea of legal moves. In chess you can't move into check, which means that I need to think about which moves can be offered in particular situations - for instance in the swapping game, you can't capture a piece checking the king with the king (if it has symmetric movement) because you'd still be in check after that move, so you need to disallow that move. And that means you need to recalculate whether the king is in checkmate (no available moves from check).
