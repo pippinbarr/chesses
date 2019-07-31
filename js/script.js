@@ -18,7 +18,24 @@ function setup() {
 
 function menuClicked () {
 
-  chess = new Gravity();
+  switch ($(this).attr('id')) {
+    case 'gravity':
+    chess = new Gravity();
+    break;
+
+    case 'swaps':
+    chess = new Swaps();
+    break;
+
+    case 'mad':
+    chess = new MAD();
+    break;
+
+    case 'pawns':
+    chess = new Pawns();
+    break;
+  }
+
 
   $('#menu').slideUp(500,() => {
     $('#menu').hide();

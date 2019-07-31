@@ -5,7 +5,8 @@
 
 ## Menu
 
-- Connect games to menu items properly
+- ~~Connect games to menu items properly~~
+- Add interim step where clicking a game opens a description which then lets you play the game
 
 ## MAD
 
