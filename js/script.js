@@ -18,7 +18,7 @@ function setup() {
 
 function menuClicked () {
 
-  chess = new Swaps();
+  chess = new Gravity();
 
   $('#menu').slideUp(500,() => {
     $('#menu').hide();
