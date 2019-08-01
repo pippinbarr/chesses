@@ -29,8 +29,9 @@
 
 ## Gravity
 
-- Fix the unrotation
-- Fix the gross animation (animate each piece one by one?)
+- ~~Fix the unrotation~~
+- ~~Fix the gross animation (animate each piece one by one?)~~
+
 - Think about the implications for checkmate etc.
 
 ## Slots

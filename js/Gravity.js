@@ -9,6 +9,10 @@ class Gravity extends BaseChess {
     $('#board').css({
       transform: 'rotate(90deg)'
     });
+
+    $('.square-55d63').css({
+      transform: 'rotate(-90deg)'
+    });
   }
 
   move(from,to) {
@@ -24,27 +28,32 @@ class Gravity extends BaseChess {
 
     let fromFileIndex = files.indexOf(fromFile);
 
-    for (let f = fromFileIndex - 1; f >= 0; f--) {
+    let f = fromFileIndex - 1;
+    let gravityInterval = setInterval(() => {
+
       let square = files[f] + fromRank;
       let piece = this.game.get(square);
       if (piece !== null) {
         this.game.remove(square);
         this.game.put({ type: piece.type, color: piece.color}, files[f+1] + fromRank);
+        this.board.position(this.game.fen(),true);
       }
-    }
+      f--;
+      if (f < 0 || piece === null) {
+        clearInterval(gravityInterval);
+      }
+    }, this.config.moveSpeed * 1.1);
+
 
     // Go through the squares below the piece that moves and find the resting place
     let toRank = to[1];
     let toFile = to[0];
-
     let toFileIndex = files.indexOf(toFile);
 
     let placed = false;
     for (let f = toFileIndex + 1; f < 8; f++) {
       let square = files[f] + toRank;
       let piece = this.game.get(square);
-
-      console.log("checking " + square)
 
       if (piece !== null) {
         this.game.remove(toFile + toRank);
@@ -62,6 +71,6 @@ class Gravity extends BaseChess {
 
     setTimeout(() => {
       this.board.position(this.game.fen(),true);
-    },this.config.moveSpeed);
+    },this.config.moveSpeed * 1.1);
   }
 }
