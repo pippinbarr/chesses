@@ -42,6 +42,10 @@ function menuClicked () {
     case 'momentum':
     chess = new Momentum();
     break;
+
+    case 'mirror':
+    chess = new Mirror();
+    break;
   }
 
 

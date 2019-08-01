@@ -44,3 +44,7 @@
 - Definitely saw some kind of bug with a pawn resurrecting after a move, unsure how to recreate right now
 - Need to think about check/checkmate in this context
 - Should the king slide? I mean... yes.
+
+## Mirror
+
+- You guessed it: weird cases around check and checkmate and king captures
