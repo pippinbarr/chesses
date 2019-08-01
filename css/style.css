@@ -4,6 +4,12 @@ This is the style file for this project.
 
 **********************************************/
 
+@font-face {
+  font-family: Vera;
+  src: url('../assets/fonts/VeraMoBd.ttf');
+  font-weight:400;
+  font-weight:normal;
+}
 
 body {
   margin: 0;
@@ -15,14 +21,30 @@ body {
 
 #game {
   display: none;
+  margin: 0;
+  padding: 0;
 }
 
 #menu {
-  color: yellow;
-  font-family: monospace;
-  font-size: 2em;
+}
+
+#title {
+}
+
+.menu-item {
+
+}
+
+.letter {
+  color: white;
+  /* background-color: white; */
+  font-family: Vera, monospace;
   text-align: center;
-  -webkit-transform: translate3d(0,0,0)
+  vertical-align: middle;
+  -webkit-transform: translate3d(0,0,0);
+  display: inline-block;
+  /* margin: 0; */
+  /* padding: 0; */
 }
 
 .option {
@@ -37,12 +59,19 @@ body {
     font-size: 1.75em;
   }
 
+  .letter {
+    height: 12.5vw;
+    width: 12.5vw;
+    font-size: 2em;
+    line-height: 12.5vw;
+  }
+
   #wrapper {
     width: 100vw;
     margin: 0 auto;
   }
 
-  #board {
+  #board, #menu, #title {
     margin: 0 auto;
     width: 100vw;
   }
@@ -59,24 +88,28 @@ body {
     margin: 0 auto;
   }
 
+  .letter {
+    height: 49px;
+    width: 49px;
+    font-size: 1.5em;
+    line-height: 49px;
+  }
+
   #board {
     margin: 0 auto;
     width: 400px;
   }
 
+  #menu, #title {
+    margin: 0 auto;
+    width: 396px;
+    border: 2px transprent red;
+  }
+
   .board-b72b1 {
     width: 400px;
+    /* border: none; */
   }
-}
-
-#title {
-  font-family: monospace;
-  font-size: 5em;
-  color: yellow;
-  text-align: center;
-  margin-top: 20px;
-  -webkit-transform: translate3d(0,0,0)
-
 }
 
 .highlight1-32417 {

@@ -6,7 +6,9 @@
 ## Menu
 
 - ~~Connect games to menu items properly~~
-- Add interim step where clicking a game opens a description which then lets you play the game
+- ~~Fancy up the menu~~
+- ~~Fix the bug where returning from the menu doesn't work anymore~~
+- Add interim step where clicking a game opens a description which then lets you play the game OR have the information text appear below the game title once play begins (might be nicer)
 
 ## MAD
 

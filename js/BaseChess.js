@@ -16,8 +16,6 @@ class BaseChess {
   }
 
   setup () {
-    console.log("BaseChess.setup");
-
     this.config = {
       draggable: false,
       position: 'start',
@@ -32,6 +30,14 @@ class BaseChess {
 
     this.from = null;
     this.lastMove = null;
+
+    $('#board').css({
+      transform: 'rotate(0deg)'
+    });
+
+    $('.square-55d63').css({
+      transform: 'rotate(0deg)'
+    });
 
     this.enableInput();
   }
