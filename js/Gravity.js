@@ -30,13 +30,13 @@ class Gravity extends BaseChess {
 
     let f = fromFileIndex - 1;
     let gravityInterval = setInterval(() => {
-
       let square = files[f] + fromRank;
       let piece = this.game.get(square);
       if (piece !== null) {
         this.game.remove(square);
         this.game.put({ type: piece.type, color: piece.color}, files[f+1] + fromRank);
         this.board.position(this.game.fen(),true);
+        setTimeout(() => { attackSFX.play(); }, this.config.moveSpeed*1.1);
       }
       f--;
       if (f < 0 || piece === null) {
@@ -71,6 +71,7 @@ class Gravity extends BaseChess {
 
     setTimeout(() => {
       this.board.position(this.game.fen(),true);
+      setTimeout(() => { attackSFX.play(); }, this.config.moveSpeed*1.1);
     },this.config.moveSpeed * 1.1);
   }
 }

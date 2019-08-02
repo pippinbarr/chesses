@@ -20,22 +20,45 @@ function setup() {
   }
 
   let menu = [
-    "GRAVITY",
-    "M.A.D.",
-    "MIRROR",
-    "MOMENTUM",
-    "PAWNS",
-    "SLOTS",
-    "SWAPS",
+    {
+      title: "GRAVITY",
+      instructions: "Regular chess, but watch out for the gravity."
+    },
+    {
+      title: "M.A.D.",
+      instructions: "Mutally assured destruction. You capture them, they capture you."
+    },
+    {
+      title: "MIRROR",
+      instructions: "Mirror, mirror, on the wall."
+    },
+    {
+      title: "MOMENTUM",
+      instructions: "Pieces keep moving in the direction they moved. Except for knights."
+    },
+    {
+      title: "PAWNS",
+      instructions: "That's a lot of pawns."
+    },
+    {
+      title: "SLOTS",
+      instructions: "The piece you choose to move is transformed into a randomly selected piece before moving."
+    },
+    {
+      title: "SWAPS",
+      instructions: "Captures are now swaps. Checkmate still applies."
+    },
   ];
 
   for (let i = 0; i < menu.length; i++) {
-    let marker = menu[i].indexOf('.')===-1?menu[i]:'MAD';
-    let $item = $(`<div class="menu-item" id="${marker}"></div>`);
+    let marker = menu[i].title.indexOf('.')===-1?menu[i].title:'MAD';
+    let $item = $(`<div class="menu-item active" id="${marker}"></div>`);
     $item.data('game',marker);
-    for (let j = 0; j < menu[i].length; j++) {
-      $item.append(`<div class="letter">${menu[i][j]}</div>`)
+    for (let j = 0; j < menu[i].title.length; j++) {
+      $item.append(`<div class="letter">${menu[i].title[j]}</div>`)
     }
+    // let $instructions = $(`<div class="instruction">${menu[i].instructions}</div>`);
+    // $item.append($instructions);
     $('#menu').append($item);
   }
 
@@ -45,8 +68,10 @@ function setup() {
 }
 
 function titleClicked () {
+  $('.instruction').slideUp();
   $('#game').slideUp(() => {
     $('.menu-item').slideDown();
+    $('.menu-item').addClass('active');
   });
 }
 
@@ -61,7 +86,7 @@ function menuClicked () {
     chess = new Swaps();
     break;
 
-    case 'M.A.D.':
+    case 'MAD':
     chess = new MAD();
     break;
 
@@ -82,10 +107,12 @@ function menuClicked () {
     break;
   }
 
+  $('.menu-item').removeClass('active');
   $('.menu-item').not(`#${$(this).data('game')}`).slideUp(500,() => {
     // $('#menu').hide();
     $('#game').slideDown(() => {
       // console.log("slid")
+      $(this).find('.instruction').slideDown();
     });
   });
 }

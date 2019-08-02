@@ -29,14 +29,19 @@ body {
 }
 
 #title {
+  color: yellow;
 }
 
 .menu-item {
+  color: white;
+}
 
+.menu-item.active:hover {
+  background-color: white;
+  color: black;
 }
 
 .letter {
-  color: white;
   /* background-color: white; */
   font-family: Vera, monospace;
   text-align: center;
@@ -45,6 +50,12 @@ body {
   display: inline-block;
   /* margin: 0; */
   /* padding: 0; */
+}
+
+.instruction {
+  font-family: Vera, monospace;
+  font-size: 1em;
+  display: none;
 }
 
 .option {

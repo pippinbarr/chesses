@@ -7,6 +7,9 @@ const placeSFX = new Howl({
 const captureSFX = new Howl({
   src: ['assets/sounds/capture.wav']
 });
+const attackSFX = new Howl({
+  src: ['assets/sounds/attack.wav']
+});
 
 
 class BaseChess {
