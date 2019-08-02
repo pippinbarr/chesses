@@ -182,3 +182,15 @@ In MAD you could capture a piece with your king, destroying your king instantly 
 It's definitely the case that there are extra legal moves available in some modes that won't be identified as such by the chess engine? e.g. in Gravity you could drop a piece in front of the king (using the gravity property) to protect it from check.
 
 ## Requires more thought.
+
+---
+
+## Down with legal moves (Friday, 2 August 2019, 19:29PM)
+
+So with a little checking in the source code for chess.js (weirdly not in the docs?) it turns out you can specify that the engine should return all moves from a position, not just legal moves. Most importantly, this means it will allow moves that put the king in check.
+
+With that in the pocket it would be possible to detect a variations set of legal moves by running through all possible moves, running them through the variation's specific outcomes, and then eliminating the moves that result in check? This would admittedly return me to a situation where the game might 'inexplicably' not allow moves that seem like they should be possible? But more likely it'd just make a few moves possible that wouldn't be in other modes.
+
+All this suggests that it's important to be able to simulate moves, check their check status, and then undo them - which the engine provides for fine. I don't see this being a massive problem really? But perhaps it will be. Anyway it seems like there's a way through. It also allows detecting checkmate because it would just be that you're in check with no legal (in the sense of the variation) moves available.
+
+Basically it shouldn't be too horrific?
