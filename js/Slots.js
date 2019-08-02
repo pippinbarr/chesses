@@ -17,10 +17,26 @@ class Slots extends BaseChess {
     if (this.from === null && validPiece) {
       // We haven't selected a move yet + a piece of the correct colour was selected
       // Choose a random piece and replace the current piece
-      this.replaceWithRandomPiece(square);
 
-      this.highlightMoves(square);
-      this.highlight(square);
+      let randomSteps = 10;
+      let slotInterval = setInterval(() => {
+        this.replaceWithRandomPiece(square);
+        this.board.position(this.game.fen(),false);
+        randomSteps--;
+        if (randomSteps == 0) {
+          clearInterval(slotInterval);
+          let moves = this.getMoves(square);
+          if (moves.length === 0) {
+            $(`.square-${square} .piece-417db`).effect('shake', { distance: 4 });
+            this.changeTurnTo(this.game.turn() === 'w' ? 'b' : 'w');
+            this.from = null;
+          }
+          else {
+            this.highlightMoves(moves);
+            this.highlight(square);
+          }
+        }
+      },100);
     }
     else if (this.from !== null) {
       // We have already selected a square to move from (and thus a piece)
@@ -36,9 +52,11 @@ class Slots extends BaseChess {
     let piece = this.game.get(square);
     if (piece !== null && piece.type !== 'k') {
       let type = this.pieces.charAt(Math.floor(Math.random() * this.pieces.length));
+      while (type === piece.type) {
+        type = this.pieces.charAt(Math.floor(Math.random() * this.pieces.length));
+      }
       this.game.remove(square);
       this.game.put({ type: type, color: this.game.turn() }, square);
-      this.board.position(this.game.fen(),false);
     }
   }
 }

@@ -53,14 +53,16 @@ class BaseChess {
 
     if (this.from === null && validPiece) {
       // We haven't selected a move yet + a piece of the correct colour was selected
-      this.highlightMoves(square);
+      let moves = this.getMoves(square);
+      this.highlightMoves(moves);
       this.highlight(square);
     }
     else if (this.from !== null) {
       // We have already selected a square to move from (and thus a piece)
       if (validPiece) {
         // But now we're selecting another valid piece to move, so we should rehilight
-        this.highlightMoves(square);
+        let moves = this.getMoves(square);
+        this.highlightMoves(moves);
         this.highlight(square);
       }
       else if ($(event.currentTarget).hasClass('highlight1-32417')) {
@@ -70,24 +72,28 @@ class BaseChess {
     }
   }
 
-  // Highlights the moves available to the piece on the given square
-  // and sets it up as the current 'from'
-  highlightMoves(square) {
-    this.clearHighlights();
-
+  getMoves(square) {
     this.from = square;
-
     let moves = this.game.moves({
-      square: this.from,
+      square: square,
       verbose: true
     });
+    return moves;
+  }
+
+  // Highlights the moves available to the piece on the given square
+  // and sets it up as the current 'from'
+  highlightMoves(moves) {
+    this.clearHighlights();
 
     // exit if there are no moves available for this square
-    if (moves.length === 0) return;
+    if (moves.length === 0) return 0;
 
     moves.forEach((move) => {
       this.highlight(move.to);
     });
+
+    return moves.length;
   }
 
   move(from,to) {
@@ -144,5 +150,14 @@ class BaseChess {
 
   disableInput() {
     $('.square-55d63').off('click');
+  }
+
+  changeTurnTo(color) {
+    let fen = this.game.fen();
+    let fenArray = fen.split(' ');
+    fenArray[1] = color;
+    fenArray[3] = '-'; // Really don't get how this goes wonky and needs this 'fix'
+    fen = fenArray.join(' ');
+    this.game.load(fen);
   }
 }
