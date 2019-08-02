@@ -12,6 +12,7 @@ This is the style file for this project.
 }
 
 body {
+  font-family: Vera, monospace;
   margin: 0;
   padding: 0;
   background-color: black;
@@ -29,11 +30,21 @@ body {
 }
 
 #title {
+  font-size: 1.5em;
+  line-height: 2em;
+  letter-spacing: 1em;
   color: yellow;
+  text-align: center;
+  padding-left: 1em;
 }
 
 .menu-item {
   color: white;
+  font-size: 1.5em;
+  line-height: 2em;
+  letter-spacing: 1em;
+  text-align: center;
+  padding-left: 1em;
 }
 
 .menu-item.active:hover {
@@ -41,21 +52,17 @@ body {
   color: black;
 }
 
-.letter {
-  /* background-color: white; */
-  font-family: Vera, monospace;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-transform: translate3d(0,0,0);
-  display: inline-block;
-  /* margin: 0; */
-  /* padding: 0; */
-}
-
 .instruction {
-  font-family: Vera, monospace;
   font-size: 1em;
   display: none;
+}
+
+.result {
+  color: red;
+  text-align: center;
+  font-size: 1em;
+  letter-spacing: 1em;
+  padding-left: 1em;
 }
 
 .option {
@@ -68,13 +75,6 @@ body {
 @media only screen and (max-device-width: 768px) {
   body {
     font-size: 1.75em;
-  }
-
-  .letter {
-    height: 12.5vw;
-    width: 12.5vw;
-    font-size: 2em;
-    line-height: 12.5vw;
   }
 
   #wrapper {
@@ -99,27 +99,23 @@ body {
     margin: 0 auto;
   }
 
-  .letter {
-    height: 49px;
-    width: 49px;
-    font-size: 1.5em;
-    line-height: 49px;
-  }
-
   #board {
     margin: 0 auto;
     width: 400px;
   }
 
-  #menu, #title {
+  #menu {
     margin: 0 auto;
-    width: 396px;
-    border: 2px transprent red;
+    width: 400px;
+  }
+
+  #title {
+    /* margin-left: 20px */
   }
 
   .board-b72b1 {
     width: 400px;
-    /* border: none; */
+    border: none;
   }
 }
 

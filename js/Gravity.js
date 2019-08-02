@@ -13,6 +13,8 @@ class Gravity extends BaseChess {
     $('.square-55d63').css({
       transform: 'rotate(-90deg)'
     });
+
+    $('#GRAVITY').after('<div class="result">CHECKMATE</div>');
   }
 
   move(from,to) {

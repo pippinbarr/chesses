@@ -15,9 +15,8 @@ $(document).ready(setup);
 function setup() {
 
   let title = "CHESSES";
-  for (let i = 0; i < title.length; i++) {
-    $('#title').append(`<div class="letter">${title[i]}</div>`)
-  }
+  $('#title').text(`${title}`)
+
 
   let menu = [
     {
@@ -25,7 +24,7 @@ function setup() {
       instructions: "Regular chess, but watch out for the gravity."
     },
     {
-      title: "M.A.D.",
+      title: "M.A.D",
       instructions: "Mutally assured destruction. You capture them, they capture you."
     },
     {
@@ -52,11 +51,11 @@ function setup() {
 
   for (let i = 0; i < menu.length; i++) {
     let marker = menu[i].title.indexOf('.')===-1?menu[i].title:'MAD';
-    let $item = $(`<div class="menu-item active" id="${marker}"></div>`);
+    let $item = $(`<div class="menu-item active" id="${marker}">${menu[i].title}</div>`);
     $item.data('game',marker);
-    for (let j = 0; j < menu[i].title.length; j++) {
-      $item.append(`<div class="letter">${menu[i].title[j]}</div>`)
-    }
+    // for (let j = 0; j < menu[i].title.length; j++) {
+    //   $item.append(`<div class="letter">${menu[i].title[j]}</div>`)
+    // }
     // let $instructions = $(`<div class="instruction">${menu[i].instructions}</div>`);
     // $item.append($instructions);
     $('#menu').append($item);

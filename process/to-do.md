@@ -35,9 +35,10 @@
 
 ## Slots
 
-- Issues around trying to play a piece that can't move once it has changed (presumably you should just sacrifice your turn in that instance, maybe shake the piece and then swap turn?)
+- ~~Issues around trying to play a piece that can't move once it has changed (presumably you should just sacrifice your turn in that instance, maybe shake the piece and then swap turn?)~~
+- ~~Animate piece randomization right? Like a slot machine? Or even just flicker the piece a few times actually, that would be fine.~~
+
 - Issues around playing a piece that then cannot protect the king in a necessary moment (making check without an available king move very powerful since you can't guarantee that a piece can protect him or capture the attacker) - but you have to wait until AFTER the piece is generated to know whether checkmate can be averted! Heh.
-- Animate piece randomization right? Like a slot machine? Or even just flicker the piece a few times actually, that would be fine.
 - Handle standard checkmate and stalemate
 - Handle issue of "deselecting" a piece
 
