@@ -8,8 +8,7 @@
 ## General
 
 - ~~__FUCK IT__ Consider availability of PGN, but probably don't bother with it (who would care, how would it help?)~~
-
-- How to indicate end-game situations? Some kind of overlay?
+- ~~How to indicate end-game situations? Some kind of overlay?~~
 
 ## MAD
 

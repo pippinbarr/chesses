@@ -138,3 +138,47 @@ I think there's something in here about finding out which games feel interesting
 ## Legal moves
 
 The variations definitely mean you need to think through consequences particularly around end conditions like checkmate, and more generally around the idea of legal moves. In chess you can't move into check, which means that I need to think about which moves can be offered in particular situations - for instance in the swapping game, you can't capture a piece checking the king with the king (if it has symmetric movement) because you'd still be in check after that move, so you need to disallow that move. And that means you need to recalculate whether the king is in checkmate (no available moves from check).
+
+---
+
+# Detecting checkmate, detecting stalemate, other game endings, legal moves, requires more thought (Friday, 2 August 2019, 16:38PM)
+
+The problem with implementing weird variations of chess while relying on an underlying chess engine is that the chess engine thinks you're playing regular chess. This means that its ability to detect things like checkmate and stalemate can be impaired in the context of the variation. There are some pretty weird cases you could imagine.
+
+## Detecting checkmate
+
+One big philosophical question: do I allow a player to "checkmate themselves" by performing a move that would allow their king to ultimately be captured? (Think of a move in gravity that drops an opposition piece in a capturing relation to the king.)
+
+If I _don't_ want to allow that, I'll need to simulate every possible move (using the variation) before calculating the legality. That's clearly possible but damn if it doesn't sound like work. And does it really add to the game? For instance it doesn't allow players to discover the comic moment of checkmating themselves - instead they'll see certain moves that look legal as being disallowed which seems sad?
+
+The alternative is "just" to always quickly reverse turn and check for check each time. If it's your turn and you have the opponent in check, you have won (it's effectively checkmate since they literally cannot move).
+
+So perhaps that's the solution for all modes in terms of checkmate?
+
+At the start of a turn:
+- Flip the turn
+- Check for check
+- If true, the player whose turn it really is wins
+- If false, flip the turn back and let them play normally
+
+This will allow players to play into a checkmate, but honestly I think that's fine and importantly it's robust in the face of weird variations.
+
+## Detecting stalemate
+
+Stalemate occurs when one side cannot perform a legal move - this is always because the king would be in check no matter what move was played.
+
+It feels like there a situations where this won't make sense?
+
+- SLOTS is a problem since Stalemate would be decided on the value of the pieces on the board, but we then change the piece. But I guess we can check stalemate after the piece is chosen in that case.
+
+This seems hard actually, much harder? Because stalemate is declared based on the standard rules, but it may be there are various rules that defeat stalemate?
+
+## Other game endings
+
+In MAD you could capture a piece with your king, destroying your king instantly and losing the game.
+
+## Legal moves
+
+It's definitely the case that there are extra legal moves available in some modes that won't be identified as such by the chess engine? e.g. in Gravity you could drop a piece in front of the king (using the gravity property) to protect it from check.
+
+## Requires more thought.
