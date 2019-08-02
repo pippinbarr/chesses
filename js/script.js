@@ -68,6 +68,7 @@ function setup() {
 
 function titleClicked () {
   $('.instruction').slideUp();
+  $('#result').slideUp();
   $('#game').slideUp(() => {
     $('.menu-item').slideDown();
     $('.menu-item').addClass('active');

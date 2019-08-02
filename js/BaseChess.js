@@ -160,4 +160,20 @@ class BaseChess {
     fen = fenArray.join(' ');
     this.game.load(fen);
   }
+
+  showResult(win,color) {
+    if (win) {
+      if (color === 'w') {
+        $('#result').text('WHITE WINS');
+      }
+      else {
+        $('#result').text('BLACK WINS');
+      }
+    }
+    else {
+      $('#result').text('DRAW');
+    }
+    $('#result').slideDown();
+    this.disableInput();
+  }
 }

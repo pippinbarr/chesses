@@ -36,7 +36,7 @@ body {
   color: yellow;
   text-align: center;
   padding-left: 1em;
-  margin-bottom: 0.5em;
+  /* margin-bottom: 0.5em; */
 }
 
 .menu-item {
@@ -55,15 +55,18 @@ body {
 
 .instruction {
   font-size: 1em;
-  display: none;
+  /* display: none; */
+  z-index: 500;
 }
 
-.result {
-  color: red;
+#result {
+  background-color: yellow;
+  color: black;
   text-align: center;
   font-size: 1em;
   letter-spacing: 1em;
   padding-left: 1em;
+  display: none;
 }
 
 .option {
