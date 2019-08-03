@@ -35,10 +35,10 @@ function setup() {
       title: "MOMENTUM",
       instructions: "Pieces keep moving in the direction they moved. Except for knights."
     },
-    // {
-    //   title: "PAWNS",
-    //   instructions: "That's a lot of pawns."
-    // },
+    {
+      title: "PAWNS",
+      instructions: "That's a lot of pawns."
+    },
     {
       title: "RANDOM",
       instructions: "Everyone's here."
@@ -50,6 +50,10 @@ function setup() {
     {
       title: "SWAPS",
       instructions: "Captures are now swaps. Checkmate still applies."
+    },
+    {
+      title: "CLONES",
+      instructions: "Do or not do."
     },
   ];
 
@@ -94,9 +98,9 @@ function menuClicked () {
     chess = new MAD();
     break;
 
-    // case 'PAWNS':
-    // chess = new Pawns();
-    // break;
+    case 'PAWNS':
+    chess = new Pawns();
+    break;
 
     case 'RANDOM':
     chess = new Random();
@@ -112,6 +116,10 @@ function menuClicked () {
 
     case 'MIRROR':
     chess = new Mirror();
+    break;
+
+    case 'CLONES':
+    chess = new Clones();
     break;
   }
 
