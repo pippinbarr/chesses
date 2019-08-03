@@ -15,41 +15,6 @@ class Gravity extends BaseChess {
     });
   }
 
-  squareClicked(event) {
-    // Find out the notation of the square and also the element representing the piece
-    let square = $(event.currentTarget).attr('data-square');
-    let $piece = $(event.currentTarget).find('.piece-417db');
-
-    let color, type;
-
-    if ($piece.length > 0) {
-      color = $piece.attr('data-piece')[0];
-      type = $piece.attr('data-piece')[1].toLowerCase();
-    }
-
-    let validPiece = ($piece.length > 0 && color === this.game.turn());
-
-    if (this.from === null && validPiece) {
-      // We haven't selected a move yet + a piece of the correct colour was selected
-      let moves = this.getMoves(square);
-      this.highlightMoves(moves);
-      this.highlight(square);
-    }
-    else if (this.from !== null) {
-      // We have already selected a square to move from (and thus a piece)
-      if (validPiece) {
-        // But now we're selecting another valid piece to move, so we should rehilight
-        let moves = this.getMoves(square);
-        this.highlightMoves(moves);
-        this.highlight(square);
-      }
-      else if ($(event.currentTarget).hasClass('highlight1-32417')) {
-        let to = $(event.currentTarget).attr('data-square');
-        this.move(type,color,this.from,to);
-      };
-    }
-  }
-
   getMoves(square) {
     this.from = square;
 
@@ -63,7 +28,7 @@ class Gravity extends BaseChess {
     let fen = this.game.fen();
     for (let i = moves.length - 1; i >= 0; i--) {
       // Try the proposed move
-      this.gravityMove(moves[i].piece,moves[i].color,moves[i].from,moves[i].to,true);
+      this.gravityMove(moves[i].from,moves[i].to,true);
       // See if it leads to being in check
       this.flipTurn();
       if (this.game.in_check()) {
@@ -77,27 +42,27 @@ class Gravity extends BaseChess {
     return moves;
   }
 
-  move(type,color,from,to) {
-    this.gravityMove(type,color,from,to,false);
+  move(from,to) {
+    this.gravityMove(from,to,false);
   }
 
-  gravityMove(type,color,from,to,silent) {
+  gravityMove(from,to,silent) {
     if (!silent) {
       // Clear all highlights from the board (a new turn is about to begin)
       this.clearHighlights();
     }
+
+    let movedPiece = this.game.get(from);
+
     // MAKE THE BASE MOVE (PRE-GRAVITY)
     let move = {
       from: from,
       to: to,
       promotion: 'q' // NOTE: always promote to a queen for example simplicity
     };
+
     this.game.move(move,{legal: false});
 
-    let movedPiece = this.game.get(to);
-
-    // console.log("gravityMove("+from+","+to+","+silent);
-    // console.log(movedPiece);
 
     if (!silent) {
       this.board.position(this.game.fen(),true);
