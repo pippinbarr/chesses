@@ -35,9 +35,13 @@ function setup() {
       title: "MOMENTUM",
       instructions: "Pieces keep moving in the direction they moved. Except for knights."
     },
+    // {
+    //   title: "PAWNS",
+    //   instructions: "That's a lot of pawns."
+    // },
     {
-      title: "PAWNS",
-      instructions: "That's a lot of pawns."
+      title: "RANDOM",
+      instructions: "Everyone's here."
     },
     {
       title: "SLOTS",
@@ -90,8 +94,12 @@ function menuClicked () {
     chess = new MAD();
     break;
 
-    case 'PAWNS':
-    chess = new Pawns();
+    // case 'PAWNS':
+    // chess = new Pawns();
+    // break;
+
+    case 'RANDOM':
+    chess = new Random();
     break;
 
     case 'SLOTS':

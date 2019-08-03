@@ -41,6 +41,13 @@
 - Handle standard checkmate and stalemate
 - Handle issue of "deselecting" a piece
 
+## Random
+
+- ~~What happens if a pawn is generated on the top rank (convert to a queen I suppose)~~
+- ~~Consider generating with the probabilities of chess?~~
+
+- Checkmate etc.
+
 ## Momentum
 
 - Definitely saw some kind of bug with a pawn resurrecting after a move, unsure how to recreate right now
