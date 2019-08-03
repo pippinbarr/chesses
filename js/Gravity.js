@@ -16,13 +16,15 @@ class Gravity extends BaseChess {
   }
 
   getMoves(square) {
-    this.from = square;
+    if (square !== undefined) this.from = square;
 
-    let moves = this.game.moves({
-      square: square,
+    let options = {
       verbose: true,
       legal: false
-    });
+    }
+    if (square !== undefined) options.square = square;
+    let moves = this.game.moves(options);
+
 
     // Remember the real position
     let fen = this.game.fen();
