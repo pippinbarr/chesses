@@ -59,6 +59,10 @@ function setup() {
       title: "QUANTUM",
       instructions: "Here comes everything."
     },
+    {
+      title: "FATE",
+      instructions: "My way or the highway."
+    },
   ];
 
   for (let i = 0; i < menu.length; i++) {
@@ -128,6 +132,10 @@ function menuClicked () {
 
     case 'QUANTUM':
     chess = new Quantum();
+    break;
+
+    case 'FATE':
+    chess = new Fate();
     break;
   }
 
