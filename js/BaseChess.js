@@ -161,6 +161,10 @@ class BaseChess {
     this.game.load(fen);
   }
 
+  flipTurn() {
+    this.changeTurnTo(this.game.turn() === 'w' ? 'b' : 'w');
+  }
+
   showResult(win,color) {
     if (win) {
       if (color === 'w') {
