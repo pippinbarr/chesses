@@ -60,6 +60,7 @@
 
 ## Quantum
 
+- Need to check at squareClicked that the piece can make at least one legal move before proceeding - maybe I already do that? I do, but I should highlight the quantum set even in that special case (e.g. I should highlight all moves not just legal, providing there's at least one legal move - this may apply in other situations in terms of showing available moves on squareClicked - e.g. gravity? Oh wait I see I can do it by overriding getMoves instead I'll do that)
 - Checkmate etc.
 
 ## Mirror

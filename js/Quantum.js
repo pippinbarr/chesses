@@ -8,7 +8,12 @@ class Quantum extends BaseChess {
   }
 
   move(from,to) {
-    let moves = this.getMoves(from);
+    this.from = from;
+    let moves = this.game.moves({
+      square: from,
+      verbose: true,
+      legal: false
+    });
     super.move(from,to);
     for (let i = 0; i < moves.length; i++) {
       this.game.put({type: moves[i].piece, color: moves[i].color},moves[i].to);
