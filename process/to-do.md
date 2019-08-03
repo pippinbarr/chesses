@@ -54,6 +54,13 @@
 - Should the king slide? I mean... yes (but note that it could slide into checkmate)
 - Handle standard checkmate and stalemate
 
+## Clones
+
+- Checkmate etc.
+
+## Quantum
+
+- Checkmate etc.
 
 ## Mirror
 

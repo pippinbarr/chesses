@@ -55,6 +55,10 @@ function setup() {
       title: "CLONES",
       instructions: "Do or not do."
     },
+    {
+      title: "QUANTUM",
+      instructions: "Here comes everything."
+    },
   ];
 
   for (let i = 0; i < menu.length; i++) {
@@ -120,6 +124,10 @@ function menuClicked () {
 
     case 'CLONES':
     chess = new Clones();
+    break;
+
+    case 'QUANTUM':
+    chess = new Quantum();
     break;
   }
 
