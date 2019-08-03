@@ -194,3 +194,32 @@ With that in the pocket it would be possible to detect a variations set of legal
 All this suggests that it's important to be able to simulate moves, check their check status, and then undo them - which the engine provides for fine. I don't see this being a massive problem really? But perhaps it will be. Anyway it seems like there's a way through. It also allows detecting checkmate because it would just be that you're in check with no legal (in the sense of the variation) moves available.
 
 Basically it shouldn't be too horrific?
+
+---
+
+# Ongoing legalities, bad games (Saturday, 3 August 2019, 14:44PM)
+
+## Ongoing legalities
+
+I've made a start on working with the question of legal moves. Started out with Gravity since I think it's the most "simulation" oriented version. It wasn't too hard to add a simulating/silent mode to the key code that generates the board from a move. Realised I had to ask chess.js to give me illegal moves and then edit them myself because it's possible for an "illegal" move to save you from check. Overall it now seems to work pretty effectively and should allow
+
+- Detecting checkmate and stalemate
+- Disallowing moves that place you in check after gravity applies
+
+Now that I know I can make it work I think I'm happier with the idea that the engine disallows moving into check. The one exception to this will be the MAD version where you capture with the king and therefore vanish I think - that's too funny to lose.
+
+So I think this is progress.
+
+## Bad games
+
+I have noticed my feelings of dissatisfaction about a couple of the modes
+
+- Pawns is fine but ultimately it just doesn't seem all that interesting? Maybe it's better to just fill the board with random pieces altogether, just guaranteeing that there are two kings in their original positions? Could start the game in checkmate, but that's fine? Maybe that's a more interesting experience. Pawns is visually pleasing but leads to an incredibly boring game. Call the new mode Random? Or something else? Unsure.
+
+- Mirror just does not feel very satisfying at all to play. The symmetry of chess works against it because the vast majority of the time it's, well, mirrored. I'd hoped symmetry would break down faster and you'd end up with odd moves, but of course symmetry cannot break down particularly fast when the only asymmetry on the entire board is the king/queen positions. So all you get is that. And even that's better than the other mirroring where it's literally every piece moving the same. It does feel like there's something to this, but it just isn't working very well right now.
+
+- Swaps worries me in that it may be too much like mirror? But probably not since it only applied on capture? I think it's proooobably okay, but maybe a teeny bit borderline.
+
+So in the end I think Pawns can be saved with the above idea. Mirror I think may have to be scrapped and I'll need something extra. I could think about the dead pieces idea because I could maintain a list of square they're on and disallow moves that involve that square? But even that won't work because it'd be hard to disallow moves that pass through it?
+
+Maybe it's just back to the drawing board for this one.
