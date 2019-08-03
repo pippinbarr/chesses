@@ -223,3 +223,29 @@ I have noticed my feelings of dissatisfaction about a couple of the modes
 So in the end I think Pawns can be saved with the above idea. Mirror I think may have to be scrapped and I'll need something extra. I could think about the dead pieces idea because I could maintain a list of square they're on and disallow moves that involve that square? But even that won't work because it'd be hard to disallow moves that pass through it?
 
 Maybe it's just back to the drawing board for this one.
+
+---
+
+# More versions (Saturday, 3 August 2019, 19:31PM)
+
+Well it's the evening and I've been casually slapping together a few new versions of chess after feels saddened by existing versions. Just today I've built
+
+- Random (all squares occupied by a random piece)
+- Clones (any moved piece is cloned rather than moved)
+- Quantum (pieces perform every move)
+- Fate (piece performs exactly one of its legal moves when selected)
+
+Rattling off four new games definitely makes me feel a bit better about the shortcomings in the existing versions and I think I can replace some. Quantum is funny but I think is probably unplayable because white has an enormous advantage in being able to move its queen first to the point that it's basically unplayable? (Actually I'm noticing one issue is that it's being limited to playing legal moves only, whereas I'd like it to play every possible move (including the illegal moves?)) Might help.
+
+Anyway now I think I'd pick the following at my 8
+
+- Gravity
+- Mad
+- Momentum
+- Random
+- Slots
+- Clones
+- Fate
+- Quantum if it can be saved? Swaps once I see a bit more how it feels?
+
+e.g. dropping Mirror and Pawns for sure, and maybe Swaps.
