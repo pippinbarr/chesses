@@ -56,6 +56,7 @@ class BaseChess {
       let moves = this.getMoves(square);
       this.highlightMoves(moves);
       this.highlight(square);
+      this.from = square;
     }
     else if (this.from !== null) {
       // We have already selected a square to move from (and thus a piece)
@@ -97,6 +98,8 @@ class BaseChess {
   }
 
   move(from,to) {
+    this.disableInput();
+
     // Make the move in the game representation
     let move = {
       from: from,
@@ -121,10 +124,8 @@ class BaseChess {
       else {
         placeSFX.play();
       }
+      this.moveCompleted();
     },this.config.moveSpeed);
-
-    // Reset the move tracking
-    this.from = null;
   }
 
   // Remove highlights from every square on the board
@@ -141,6 +142,23 @@ class BaseChess {
     $('.square-'+square).addClass(`highlight1-32417`);
   }
 
+  moveCompleted() {
+    this.from = null;
+    let moves = this.getMoves();
+    if (moves.length === 0) {
+      if (this.game.in_check()) {
+        // CHECKMATE
+        this.showResult(true,this.getTurn(false));
+      }
+      else {
+        // STALEMATE
+        this.showResult(false);
+      }
+    }
+    else {
+      this.enableInput();
+    }
+  }
 
   enableInput() {
     $('.square-55d63').on('click', (event) => {
@@ -179,5 +197,14 @@ class BaseChess {
     }
     $('#result').slideDown();
     this.disableInput();
+  }
+
+  getTurn(current) {
+    if (current) {
+      this.game.turn()
+    }
+    else {
+      return this.game.turn() === 'w' ? 'b' : 'w'
+    }
   }
 }

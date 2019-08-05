@@ -13,11 +13,18 @@ class Gravity extends BaseChess {
     $('.square-55d63').css({
       transform: 'rotate(-90deg)'
     });
+
+    // CHECKMATE POSITION
+    // this.game.load("2rnkbnr/4pppp/4pbpp/7q/8/3QPPPP/3RPPPP/2NBKBNR w KQkq - 0 7");
+    // this.board.position(this.game.fen(),false);
+
+    // STALEMATE POSITION
+    // this.game.load("5Rnk/7n/7R/8/8/8/7R/6QK w KQkq - 0 7");
+    // this.board.position(this.game.fen(),false);
+
   }
 
   getMoves(square) {
-    if (square !== undefined) this.from = square;
-
     let options = {
       verbose: true,
       legal: false
@@ -45,6 +52,7 @@ class Gravity extends BaseChess {
   }
 
   move(from,to) {
+    this.disableInput();
     this.gravityMove(from,to,false);
   }
 
@@ -141,6 +149,7 @@ class Gravity extends BaseChess {
           // this.changeTurnTo(this.game.turn() === 'w' ? 'b' : 'w');
 
           // THIS IS WHERE WE CAN CHECK FOR A RESULT
+          this.moveCompleted();
         }
       }, this.config.moveSpeed * 1.1);
     }
