@@ -44,9 +44,9 @@
 
 - ~~Should the king slide? I mean... yes (but note that it could slide into checkmate)~~
 - ~~Handle standard checkmate and stalemate~~
+- ~~Make castling do what it should (both pieces should slide in that case!)~~
 
-- Make castling do what it should (both pieces should slide in that case!)
-- Definitely saw some kind of bug with a pawn resurrecting after a move, unsure how to recreate right now
+- Definitely saw some kind of bug with a pawn resurrecting after a move, unsure how to recreate right now (maybe loading invalid fen? Don't think so though... setting a weird position? Hmm.)
 
 ## CLONES
 

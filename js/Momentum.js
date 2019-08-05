@@ -14,6 +14,10 @@ class Momentum extends BaseChess {
     // this.game.load("5Rnk/7n/7R/8/8/8/7R/6QK w - - 0 7");
     // this.board.position(this.game.fen(),false);
 
+    // CASTLING TEST
+    // this.game.load("r3k2r/pppppppp/8/8/8/8/PPPPPPPr/R3K2R w KQkq - 0 7");
+    // this.board.position(this.game.fen(),false);
+
   }
 
   move(from,to) {
@@ -50,7 +54,9 @@ class Momentum extends BaseChess {
 
   momentumMove(from,to,silent) {
     // Make the initial move
+    console.log(from,to,silent,this.game.turn());
     let move = super.move(from,to,silent);
+    console.log(move);
 
     if (move.type === 'n') {
       return; // We don't slide knights
@@ -97,6 +103,31 @@ class Momentum extends BaseChess {
 
     this.game.remove(to);
     this.game.put({ type: move.piece, color: move.color }, destinationSquare);
+
+    if (/k/.test(move.flags)) {
+      if (this.game.turn() === 'b') {
+        this.flipTurn();
+        this.momentumMove('f1','e1',true);
+        // this.flipTurn();
+      }
+      else {
+        this.flipTurn();
+        this.momentumMove('f8','e8',true);
+        // this.flipTurn();
+      }
+    }
+    else if (/q/.test(move.flags)) {
+      if (this.game.turn() === 'b') {
+        this.flipTurn();
+        this.momentumMove('d1','e1',true);
+        // this.flipTurn();
+      }
+      else {
+        this.flipTurn();
+        this.momentumMove('d8','e8',true);
+        // this.flipTurn();
+      }
+    }
 
     if (!silent) {
       setTimeout(() => {

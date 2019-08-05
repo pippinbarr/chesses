@@ -15,8 +15,8 @@ class Slots extends BaseChess {
     // this.board.position(this.game.fen(),false);
 
     // CASTLING POSITION
-    this.game.load("r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2Q w KQkq - 0 7");
-    this.board.position(this.game.fen(),false);
+    // this.game.load("r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2Q w KQkq - 0 7");
+    // this.board.position(this.game.fen(),false);
   }
 
   squareClicked(event) {
