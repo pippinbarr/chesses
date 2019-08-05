@@ -20,6 +20,18 @@ function setup() {
 
   let menu = [
     {
+      title: "AUTO",
+      instructions: "My way or the highway."
+    },
+    {
+      title: "CLONES",
+      instructions: "Do or not do."
+    },
+    {
+      title: "EVERYONE",
+      instructions: "Everyone's here."
+    },
+    {
       title: "GRAVITY",
       instructions: "Regular chess, but watch out for the gravity."
     },
@@ -27,42 +39,32 @@ function setup() {
       title: "M.A.D",
       instructions: "Mutally assured destruction. You capture them, they capture you."
     },
-    {
-      title: "MIRROR",
-      instructions: "Mirror, mirror, on the wall."
-    },
+    // {
+    //   title: "MIRROR",
+    //   instructions: "Mirror, mirror, on the wall."
+    // },
     {
       title: "MOMENTUM",
       instructions: "Pieces keep moving in the direction they moved. Except for knights."
     },
-    {
-      title: "PAWNS",
-      instructions: "That's a lot of pawns."
-    },
-    {
-      title: "RANDOM",
-      instructions: "Everyone's here."
-    },
-    {
-      title: "SLOTS",
-      instructions: "The piece you choose to move is transformed into a randomly selected piece before moving."
-    },
-    {
-      title: "SWAPS",
-      instructions: "Captures are now swaps. Checkmate still applies."
-    },
-    {
-      title: "CLONES",
-      instructions: "Do or not do."
-    },
+    // {
+    //   title: "PAWNS",
+    //   instructions: "That's a lot of pawns."
+    // },
     {
       title: "QUANTUM",
       instructions: "Here comes everything."
     },
     {
-      title: "FATE",
-      instructions: "My way or the highway."
+      title: "SLOTS",
+      instructions: "The piece you choose to move is transformed into a randomly selected piece before moving."
     },
+    // {
+    //   title: "SWAPS",
+    //   instructions: "Captures are now swaps. Checkmate still applies."
+    // },
+
+
   ];
 
   for (let i = 0; i < menu.length; i++) {
