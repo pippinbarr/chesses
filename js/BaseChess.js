@@ -175,6 +175,19 @@ class BaseChess {
     $('.square-55d63').on('click', (event) => {
       this.squareClicked(event);
     });
+
+    this.setTurnIndicator();
+  }
+
+  setTurnIndicator() {
+    if (this.game.turn() === 'w') {
+      $('.board-b72b1').removeClass('blackTurn',250);
+      $('.board-b72b1').addClass('whiteTurn',250);
+    }
+    else {
+      $('.board-b72b1').removeClass('whiteTurn',250);
+      $('.board-b72b1').addClass('blackTurn',250);
+    }
   }
 
   disableInput() {

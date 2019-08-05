@@ -73,8 +73,9 @@ class Slots extends BaseChess {
         setTimeout(() => {
           this.hideMessage();
           this.changeTurnTo(this.game.turn() === 'w' ? 'b' : 'w');
+          this.setTurnIndicator();
           this.from = null;
-        },2000);
+        },1000);
       }
     }
     else {

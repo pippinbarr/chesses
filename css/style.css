@@ -75,6 +75,20 @@ body {
   display: inline-block;
 }
 
+.board-b72b1 {
+  margin: 0 auto;
+  border: 2px solid transparent;
+}
+
+.whiteTurn {
+  border-bottom: 2px solid yellow;
+}
+
+.blackTurn {
+  border-top: 2px solid yellow;
+}
+
+
 /* MOBILE? */
 @media only screen and (max-device-width: 768px) {
   body {
@@ -92,9 +106,7 @@ body {
   }
 
   .board-b72b1 {
-    margin: 0 auto;
     width: 100vw;
-    border: none;
   }
 }
 
@@ -124,9 +136,7 @@ body {
   }
 
   .board-b72b1 {
-    margin: 0 auto;
     width: 400px;
-    border: none;
   }
 }
 
