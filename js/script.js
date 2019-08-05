@@ -86,7 +86,7 @@ function setup() {
 
 function titleClicked () {
   $('.instruction').slideUp();
-  $('#result').slideUp();
+  $('#message').slideUp();
   $('#game').slideUp(() => {
     $('.menu-item').slideDown();
     $('.menu-item').addClass('active');
@@ -112,7 +112,7 @@ function menuClicked () {
     chess = new Pawns();
     break;
 
-    case 'RANDOM':
+    case 'EVERYONE':
     chess = new Random();
     break;
 
@@ -136,7 +136,7 @@ function menuClicked () {
     chess = new Quantum();
     break;
 
-    case 'FATE':
+    case 'AUTO':
     chess = new Fate();
     break;
   }
@@ -149,4 +149,5 @@ function menuClicked () {
       $(this).find('.instruction').slideDown();
     });
   });
+  $('#message').slideUp();
 }

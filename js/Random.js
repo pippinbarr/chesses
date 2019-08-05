@@ -33,7 +33,7 @@ class Random extends BaseChess {
         let piece = pieces.charAt(Math.floor(Math.random() * pieces.length));
         piece = (Math.random() < 0.5) ? piece : piece.toUpperCase();
         if (piece === 'P' && i === 0) piece = 'Q';
-        else if (piece === 'p' && i === 7) piece = 'q'; 
+        else if (piece === 'p' && i === 7) piece = 'q';
         row.push(piece);
       }
       board.push(row);
@@ -58,8 +58,6 @@ class Random extends BaseChess {
       if (i < board.length-1) fen += '/';
     }
     fen += ' w - - 0 1';
-
-    console.log(fen);
 
     this.game.load(fen);
   }

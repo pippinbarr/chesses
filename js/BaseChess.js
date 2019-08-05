@@ -53,10 +53,16 @@ class BaseChess {
 
     if (this.from === null && validPiece) {
       // We haven't selected a move yet + a piece of the correct colour was selected
-      let moves = this.getMoves(square);
-      this.highlightMoves(moves);
-      this.highlight(square);
       this.from = square;
+      let moves = this.getMoves(square);
+      if (moves.length === 0) {
+        $(`.square-${square} .piece-417db`).effect('shake', { distance: 4 });
+        this.from = null;
+        this.clearHighlights();
+        return;
+      }
+      this.highlightMoves(moves);
+      // this.highlight(square);
     }
     else if (this.from !== null) {
       // We have already selected a square to move from (and thus a piece)
@@ -64,7 +70,7 @@ class BaseChess {
         // But now we're selecting another valid piece to move, so we should rehilight
         let moves = this.getMoves(square);
         this.highlightMoves(moves);
-        this.highlight(square);
+        // this.highlight(square);
       }
       else if ($(event.currentTarget).hasClass('highlight1-32417')) {
         let to = $(event.currentTarget).attr('data-square');
@@ -74,11 +80,11 @@ class BaseChess {
   }
 
   getMoves(square) {
-    this.from = square;
-    let moves = this.game.moves({
-      square: square,
-      verbose: true
-    });
+    let options = {
+      verbose: true,
+    }
+    if (square !== undefined) options.square = square;
+    let moves = this.game.moves(options);
     return moves;
   }
 
@@ -97,8 +103,10 @@ class BaseChess {
     return moves.length;
   }
 
-  move(from,to) {
-    this.disableInput();
+  move(from,to,silent) {
+    if (silent === undefined) silent = false;
+
+    if (!silent) this.disableInput();
 
     // Make the move in the game representation
     let move = {
@@ -109,23 +117,25 @@ class BaseChess {
 
     move = this.game.move(move);
 
-    this.lastMove = move;
+    if (!silent) {
+      // Clear all highlights from the board (a new turn is about to begin)
+      this.clearHighlights();
 
-    // Clear all highlights from the board (a new turn is about to begin)
-    this.clearHighlights();
+      // Update the board based on the new position
+      this.board.position(this.game.fen(),true);
 
-    // Update the board based on the new position
-    this.board.position(this.game.fen(),true);
+      setTimeout(() => {
+        if (move && (move.flags.indexOf('c') !== -1 || move.flags.indexOf('e') !== -1)) {
+          captureSFX.play();
+        }
+        else {
+          placeSFX.play();
+        }
+        this.moveCompleted();
+      },this.config.moveSpeed);
+    }
 
-    setTimeout(() => {
-      if (move.flags.indexOf('c') !== -1 || move.flags.indexOf('e') !== -1) {
-        captureSFX.play();
-      }
-      else {
-        placeSFX.play();
-      }
-      this.moveCompleted();
-    },this.config.moveSpeed);
+    return move;
   }
 
   // Remove highlights from every square on the board
@@ -157,6 +167,7 @@ class BaseChess {
     }
     else {
       this.enableInput();
+      this.hideMessage();
     }
   }
 
@@ -186,17 +197,26 @@ class BaseChess {
   showResult(win,color) {
     if (win) {
       if (color === 'w') {
-        $('#result').text('WHITE WINS');
+        $('#message').text('WHITE WINS');
       }
       else {
-        $('#result').text('BLACK WINS');
+        $('#message').text('BLACK WINS');
       }
     }
     else {
-      $('#result').text('DRAW');
+      $('#message').text('STALEMATE');
     }
-    $('#result').slideDown();
+    $('#message').slideDown();
     this.disableInput();
+  }
+
+  showMessage(message) {
+    $('#message').text(message);
+    $('#message').slideDown();
+  }
+
+  hideMessage() {
+    $('#message').slideUp();
   }
 
   getTurn(current) {

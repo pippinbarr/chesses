@@ -59,7 +59,7 @@ body {
   z-index: 500;
 }
 
-#result {
+#message {
   background-color: yellow;
   color: black;
   text-align: center;
