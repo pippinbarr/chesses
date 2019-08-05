@@ -77,15 +77,18 @@ body {
 
 .board-b72b1 {
   margin: 0 auto;
-  border: 2px solid transparent;
+  border-top: .25em solid transparent;
+  border-bottom: .25em solid transparent;
+  border-left: none;
+  border-right: none;
 }
 
 .whiteTurn {
-  border-bottom: 2px solid yellow;
+  border-bottom: .25em solid yellow;
 }
 
 .blackTurn {
-  border-top: 2px solid yellow;
+  border-top: .25em solid yellow;
 }
 
 
