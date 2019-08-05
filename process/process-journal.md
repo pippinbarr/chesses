@@ -249,3 +249,19 @@ Anyway now I think I'd pick the following at my 8
 - Quantum if it can be saved? Swaps once I see a bit more how it feels?
 
 e.g. dropping Mirror and Pawns for sure, and maybe Swaps.
+
+---
+
+# Check and checkmate handled, slidy castling is funny, almost done (Monday, 5 August 2019, 16:36PM)
+
+Did a ton of small work on the game today. Essentially I went through making sure the game could detect and respond to checkmate and stalemate.
+
+Which sounds simple, but of course a number of the games involve weird moves that could get you into or out of check and so I had to rewrite a bunch of stuff so that the code that checks which moves are possible from a position takes this into account. It was quite a lot of work and I also refactored bits of the code as I went to make life easier.
+
+One good thing was clarifying the UI language for invalid versus failed moves. It's possible in slots to choose a valid piece but then have it change to something that cannot move, so now the idea is: if you choose a piece that cannot possibly move (taking into account that it could turn into any piece) it shakes. If you choose a piece and it turns out afterwards it cannot move, you get a message telling you that.
+
+Also implemented nice castling for momentum so the rook slides away just like the king. It's pretty funny to look at.
+
+Overall I'm quite happy with how this thing is turning out. The chesses themselves are weird and I think probably a bit fun to play with. And then the implementation feels relatively solid (other than weird hard-to-reproduce bugs which are the worst). Again the benefits of working with established libraries/engines to do a bunch of the heavy lifting that would otherwise have killed me.
+
+I'd say this will be ready with a day or two more work, so I can schedule it perhaps for two weeks from now?

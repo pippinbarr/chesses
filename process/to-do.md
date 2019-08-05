@@ -12,6 +12,9 @@
 - ~~Make unmovable pieces shake rather than highlight~~
 - ~~Investigate castling (make illegal in games where it can't work)~~
 
+- Reduce delay for no move message as it's annoyingly slow now (or allow play while it displays)
+- Add a highlight (border?) to show whose turn it is (and don't highlight during no input, shoudl help usability a lot)
+
 ## MAD
 
 - ~~What happens when you capture with the king? I guess it gets removed and you lose immediately? Makes sense. Special case though.~~
