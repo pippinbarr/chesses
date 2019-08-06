@@ -1,74 +1,81 @@
-# OBVIOUSLY THIS NEEDS TO BE WRITTEN FOR THE NEW GAME
+# _Chesses_ Press Kit
 
-# *SNAKISMS* Press Kit
+_Your pieces slide! Your pieces fall! Your pieces do the strangest things! It's chesses unlike the chess you normally chess! Bet you can't chess just one!_
 
-#### [Play *SNAKISMS*](https://pippinbarr.github.io/SNAKISMS/)
+#### [Play _Chesses_](https://pippinbarr.github.io/chesses) (Desktop and Mobile)
 
 ## The basics
 
 * Developer: [Pippin Barr](http://www.pippinbarr.com/)
-* Release: 25th of January, 2017
-* Platform: Browser (mobile- and tablet-friendly)
-* Code repository: https://www.github.com/pippinbarr/SNAKISMS/
+* Release: ? ? 2019
+* Platform: Browser (desktop and mobile)
+* Code repository: https://github.com/pippinbarr/chesses
 * Price: $0.00
+
+## Who is this Pippin Barr guy?
+
+Pippin is an experimental game developer who has made games about everything from [Eurovision](http://www.pippinbarr.com/2012/03/27/epic-sax-game/) to [performance art](http://www.pippinbarr.com/2011/09/14/the-artist-is-present/) to [dystopian post-work futures](http://www.pippinbarr.com/games/2017/07/03/it-is-as-if-you-were-doing-work.html). He's an Assistant Professor in the [Department of Design and Computation Arts](http://www.concordia.ca/finearts/design.html) at [Concordia University](http://www.concordia.ca/) in Montréal. He is also the associate director of the [Technoculture, Art, and Games (TAG)](http://tag.hexagram.ca/) Research Centre, which is part of the [Milieux Institute for Arts, Culture, and Technology](http://milieux.concordia.ca/).
 
 ## Description
 
-Life is meaningless! Maybe you need some kind of ism to attempt to ward off the inevitable and unavoidable despair! Here, have some isms made of snakes! Life is still meaningless but now you have a bunch of snakes as well! Thank me later!
+_Chesses_ is more or less a continuation of the kind of game design I've pursued with games like [PONGS](https://www.pippinbarr.com/2012/04/11/pongs/), [BREAKSOUT](https://www.pippinbarr.com/2015/10/01/breaksout/), and [SNAKISMS](https://www.pippinbarr.com/2017/01/25/snakisms/), among others. That is, it's a set of variations on an original game: in this case it's chess. There are eight variations in the collection (one for each rank on a chessboard or something), each exploring some addition to or subtraction from the original game of chess, whether it's playing with gravity applied or playing quantum moves that exercise every option at once. Unsurprisingly you can't really play any of these variations as you would play standard chess, but that's kind of the fun of it - a chance to play some chess without freaking out about the obscene difficulty it represents.
 
 ## History
 
-*SNAKISMS* was begun on the strength of the idea of "Ascetic Snake", a game of *Snake* in which the snake isn't meant to eat the apple (or whatever that thing is in *Snake*). That basic reversal of the standard form of the game struck me as funny because those sorts of things always strike me as funny, but on turning to actually make the game it seemed pretty clear it was too much of a throw-away idea all on its own.
+_Chesses_ essentially arose from my interest quite a while ago (like in 2014) in "gravity chess", which would be played with the board rotated 90 degrees such that when you play a piece out into space it falls to the bottom. In fact, I worked on this for a little while with [Tom Curtis](https://dinosaursandmoustaches.com/), but we ran out of steam somewhere along the way (he was doing all the work, to be fair) and it didn't materialise. Now that I'm a better programmer than I was, and pretty comfortable with chess programming in JavaScript thanks to previous projects ([Let's Play: Ancient Greek Punishment: Chess Edition](https://www.pippinbarr.com/games/2019/04/23/lets-play-ancient-greek-punishment-chess-edition.html) and [Rogess](https://www.pippinbarr.com/games/2019/05/21/rogess.html)), I figured I could make a move on it.
 
-And so it came to pass that I decided I needed to make a whole set of *Snake* games based (loosely) on different philosophies, eventually settling on the idea of "isms" because *SNAKISMS* is really a pretty great title for a game, I think you'll agree. The design process took a surprisingly long time in terms of coming up with a set of "reasonable" interpretations of philosophies/isms that could be translated in some way to the mechanics of the original *Snake* game.
+I went through a larger set of ideas for chess variants that might be interesting specifically played via a computer (rather than just playing on a chess board), and of course culled some (fare thee well, Mirror Chess, Swaps Chess, and Pawn Chess). Mostly I tried to end up with a set that I think are genuinely somewhat interesting to play - both just to try to understand how to do anything sensible, and then beyond that to try to play "well" in the new version.
 
-This idea of multiple versions of a simple, retro arcade game is not especially new in my development history. In particular, *SNAKISMS* is a spiritual successor to the previous games [*PONGS*](http://www.pippinbarr.com/games/pongs/Pongs.html) and [*BREAKSOUT*](http://www.pippinbarr.com/games/breaksout/), each of which present 36 variations of their namesake game. *SNAKISMS* differs in that all the variations are much more closely tied to the specific thematic idea of philosophy and conveying it through game mechanics. (It's also the tragic case that there are only 21 variations in *SNAKISMS* because I couldn't or didn't want to come up with 36.)
+_Chesses_ is also another data-point in the ultra-detailed process documentation approach called [MDMA](http://www.gamesasresearch.com/mdma). So, if you want to, you can read a lot about the game's development by reading its [process documentation](https://github.com/pippinbarr/chesses/blob/master/process/README.md), by going through its [commit history](https://github.com/pippinbarr/chesses/commits/master), and by reading the [research questions](https://github.com/pippinbarr/chesses/blob/master/process/research-questions.md).
 
 ## Technology
 
-*SNAKISMS* is written in JavaScript using [Phaser](http://www.phaser.io/), an excellent JavaScript game library/engine. It also uses [phaser-swipe](https://github.com/flogvit/phaser-swipe) by Vegard Hanssen to implement swipe controls for the snake on touch-based devices. The sounds and graphics for *SNAKISMS* were all taken from the assets of my earlier game [*Snek.*](https://www.pippinbarr.com/2013/06/13/snek/). The music in the "Romanticism" variation is from the YouTube video [Royalty Free Creative Commons Music (Piano & Violin)](https://www.youtube.com/watch?v=TZTtvwpXReA).
+_Chesses_ was created in JavaScript using the ever-so-useful [chess.js](https://github.com/jhlywa/chess.js) and [chessboard.js](https://chessboardjs.com/) libraries which together make representing chess (or variants) remarkably straightforward compared to the true nightmare it would be to do from scratch. It also involved a little bit of [jQuery](https://jquery.com/) and [jQuery UI](https://jqueryui.com/).
 
-*SNAKISMS* is an open source game licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/). You are looking at the code (and process and press) repository right now.
+## License
+
+_Chesses_ is an open source game licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/). You can obtain the source code from its [code repository](https://github.com/pippinbarr/chesses) on GitHub.
 
 ## Features
 
-* Snakes!
-* Apples!
-* Walls!
-* Pseudo-philosophy!
-* The consolation of pseudo-philosophy!
+- Chess!
+- But also not really chess!
+- Sliding!
+- Falling!
+- Quantum superpositions!
 
-## Videos
+### Trailer
 
-### [SNAKISMS Trailer](https://www.youtube.com/watch?v=p9MS7ERVLGA)
-
-[![SNAKISMS Trailer](https://img.youtube.com/vi/p9MS7ERVLGA/0.jpg)](https://www.youtube.com/watch?v=p9MS7ERVLGA)
+See animated GIFs.
 
 ## Images
 
-![Capitalism](images/Capitalism.png) ![Monism](images/Monism.png) ![Post-Apocalypticism](images/Post-Apocalypticism.png) ![Pessimism](images/Pessimism.png) ![Casualism](images/Casualism.png) ![Utilitarianism](images/Utilitarianism.png)
+![](images/gravity-chess.gif)  
+Gravity Chess
+
+![](images/momentum-chess.gif)  
+Momentum Chess
+
+![](images/gambling-chess.gif)  
+Gambling Chess
 
 ## Press
-* chiconuclear, [Snakes on a Plato's Cave: SNAKISMS](http://www.anaitgames.com/articulos/snakisms-pippin-barr). Anait Games. (in Spanish)
-* Pierrec, [Snakisms](http://oujevipo.fr/general/5895-snakisms/). L'Oujevipo. (in French)
-* Clementine Spiler, [Snakisms, Philosophie en 8 Bits](http://www.novaplanet.com/novamag/70861/snakisms-philosophie-en-8-bits). Nova Planet. (in French)
-* Jason Kottke, [Snakisms](http://kottke.org/17/03/snakisms). kottke.org.
-* Cory Doctorow, [Snakisms: 22 philosophies expounded through the game of Snake](http://boingboing.net/2017/03/04/nothing-sounds-quite-like-a-33-2.html). BoingBoing.
-* Clayton Purdom, [Waste some time playing 22 different philosophical versions of Snake](http://www.avclub.com/article/waste-some-time-playing-22-different-philosophical-251567). AV Club.
-* Rob Beschizza, [Snakisms: the snake game, but now with meaning](http://boingboing.net/2017/03/06/snakisms-the-snake-game-but.html). BoingBoing.
-* Chris Priestman, [SNAKISMS (Pippin Barr)](http://warpdoor.com/2017/03/07/snakisms-pippin-barr/). Warp Door.
+
+- Coming soon?
 
 ## Additional Links
 
-* [Developer blog posts about *SNAKISMS*](http://www.pippinbarr.com/tag/snakisms?order=asc)
+- [Process documentation of _Chesses_](https://github.com/pippinbarr/chesses/blob/master/process/README.md)
+- [Commit history of _Chesses_](https://github.com/pippinbarr/chesses/commits/master)
 
 ## Credits
 
-* Pippin Barr: everything.
+* Pippin Barr: basically everything?
 
 ## Contact
 
 * Email: [pippin.barr+press@gmail.com](mailto:pippin.barr+press@gmail.com)
 * Website: [www.pippinbarr.com](http://www.pippinbarr.com/)
 * Twitter: [@pippinbarr](https://www.twitter.com/pippinbarr)
+* Instagram: [@pippinbarr](https://www.instagram.com/pippinbarr)
 * Facebook: [Pippin Barr](http://www.facebook.com/pippin.barr)

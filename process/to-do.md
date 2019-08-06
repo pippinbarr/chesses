@@ -41,6 +41,8 @@
 - ~~Handle issue of castling with a non-rook!~~
 - ~~__MAYBE FIXED VIA INPUT?__ Shitty bugs?~~
 
+- Not detecting checkmate when side gets a piece that can capture the king (prior to moving it)
+
 ## EVERYONE
 
 - ~~What happens if a pawn is generated on the top rank (convert to a queen I suppose)~~
