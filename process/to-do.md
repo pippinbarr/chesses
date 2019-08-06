@@ -54,8 +54,7 @@
 - ~~Make castling do what it should (both pieces should slide in that case!)~~
 - ~~__MAYBE FIXED VIA INPUT?__ Definitely saw some kind of bug with a pawn resurrecting after a move, unsure how to recreate right now (maybe loading invalid fen? Don't think so though... setting a weird position? Hmm.)~~
 - ~~__MAYBE FIXED VIA INPUT?__ Also just saw a king move instead of a bishop~~
-
-- Queening when a pawn slides to the final rank???
+- ~~__YUP__ Queening when a pawn slides to the final rank???~~
 
 ## CLONES
 

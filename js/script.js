@@ -20,20 +20,24 @@ function setup() {
 
   let menu = [
     {
-      title: "AUTO",
-      instructions: "My way or the highway."
-    },
-    {
-      title: "CLONES",
+      title: "CLONE",
       instructions: "Do or not do."
     },
     {
-      title: "EVERYONE",
+      title: "CROWDED",
       instructions: "Everyone's here."
+    },
+    {
+      title: "GAMBLING",
+      instructions: "The piece you choose to move is transformed into a randomly selected piece before moving."
     },
     {
       title: "GRAVITY",
       instructions: "Regular chess, but watch out for the gravity."
+    },
+    {
+      title: "LITE",
+      instructions: "My way or the highway."
     },
     {
       title: "M.A.D",
@@ -47,6 +51,7 @@ function setup() {
       title: "MOMENTUM",
       instructions: "Pieces keep moving in the direction they moved. Except for knights."
     },
+
     // {
     //   title: "PAWNS",
     //   instructions: "That's a lot of pawns."
@@ -54,10 +59,6 @@ function setup() {
     {
       title: "QUANTUM",
       instructions: "Here comes everything."
-    },
-    {
-      title: "SLOTS",
-      instructions: "The piece you choose to move is transformed into a randomly selected piece before moving."
     },
     // {
     //   title: "SWAPS",
@@ -100,23 +101,23 @@ function menuClicked () {
     chess = new Gravity();
     break;
 
-    case 'SWAPS':
-    chess = new Swaps();
-    break;
+    // case 'SWAPS':
+    // chess = new Swaps();
+    // break;
 
     case 'MAD':
     chess = new MAD();
     break;
 
-    case 'PAWNS':
-    chess = new Pawns();
-    break;
+    // case 'PAWNS':
+    // chess = new Pawns();
+    // break;
 
-    case 'EVERYONE':
+    case 'CROWDED':
     chess = new Random();
     break;
 
-    case 'SLOTS':
+    case 'GAMBLING':
     chess = new Slots();
     break;
 
@@ -124,11 +125,11 @@ function menuClicked () {
     chess = new Momentum();
     break;
 
-    case 'MIRROR':
-    chess = new Mirror();
-    break;
+    // case 'MIRROR':
+    // chess = new Mirror();
+    // break;
 
-    case 'CLONES':
+    case 'CLONE':
     chess = new Clones();
     break;
 
@@ -136,7 +137,7 @@ function menuClicked () {
     chess = new Quantum();
     break;
 
-    case 'AUTO':
+    case 'LITE':
     chess = new Fate();
     break;
   }
