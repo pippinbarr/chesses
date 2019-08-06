@@ -100,8 +100,26 @@ class Momentum extends BaseChess {
     let destinationSquare = files.charAt(destinationFileIndex) + ranks.charAt(destinationRankIndex);
 
     this.game.remove(to);
-    this.game.put({ type: move.piece, color: move.color }, destinationSquare);
 
+    // Check for a pawn that queened through sliding
+    let queen = false;
+    if (move.piece === 'p') {
+      if (move.color === 'w' && destinationSquare[1] === '8') {
+        queen = true;
+      }
+      if (move.color === 'b' && destinationSquare[1] === '1') {
+        queen = true;
+      }
+    }
+    if (queen) {
+      this.game.put({ type: 'q', color: move.color }, destinationSquare);
+    }
+    else {
+      this.game.put({ type: move.piece, color: move.color }, destinationSquare);
+    }
+
+
+    // Check for castling and momentum the rook as well
     if (/k/.test(move.flags)) {
       if (this.game.turn() === 'b') {
         this.flipTurn();
