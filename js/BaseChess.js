@@ -42,6 +42,7 @@ class BaseChess {
       transform: 'rotate(0deg)'
     });
 
+    this.changeTurn();
     this.enableInput();
   }
 
@@ -56,24 +57,34 @@ class BaseChess {
       this.from = square;
       let moves = this.getMoves(square);
       if (moves.length === 0) {
-        $(`.square-${square} .piece-417db`).effect('shake', { distance: 4 });
+        $(`.square-${square} .piece-417db`).effect('shake', { times: 1, distance: 2 }, 50, () => {
+        });
         this.from = null;
         this.clearHighlights();
         return;
       }
       this.highlightMoves(moves);
-      // this.highlight(square);
     }
     else if (this.from !== null) {
       // We have already selected a square to move from (and thus a piece)
       if (validPiece) {
         // But now we're selecting another valid piece to move, so we should rehilight
         let moves = this.getMoves(square);
+        if (moves.length === 0) {
+          $(`.square-${square} .piece-417db`).effect('shake', { times: 1, distance: 2 }, 50, () => {
+          });
+          this.from = null;
+          this.clearHighlights();
+          return;
+        }
+        else {
+          this.from = square;
+        }
         this.highlightMoves(moves);
-        // this.highlight(square);
       }
       else if ($(event.currentTarget).hasClass('highlight1-32417')) {
         let to = $(event.currentTarget).attr('data-square');
+        console.log(this.from,to)
         this.move(this.from,to);
       };
     }
@@ -106,7 +117,7 @@ class BaseChess {
   move(from,to,silent) {
     if (silent === undefined) silent = false;
 
-    if (!silent) this.disableInput();
+    // if (!silent) this.disableInput();
 
     // Make the move in the game representation
     let move = {
@@ -118,6 +129,8 @@ class BaseChess {
     move = this.game.move(move);
 
     if (!silent) {
+      this.disableInput();
+
       // Clear all highlights from the board (a new turn is about to begin)
       this.clearHighlights();
 
@@ -132,7 +145,7 @@ class BaseChess {
           placeSFX.play();
         }
         this.moveCompleted();
-      },this.config.moveSpeed);
+      },this.config.moveSpeed * 1.1);
     }
 
     return move;
@@ -166,32 +179,38 @@ class BaseChess {
       }
     }
     else {
-      this.enableInput();
+      this.changeTurn();
       this.hideMessage();
     }
   }
 
   enableInput() {
-    $('.square-55d63').on('click', (event) => {
-      this.squareClicked(event);
-    });
-
-    this.setTurnIndicator();
-  }
-
-  setTurnIndicator() {
-    if (this.game.turn() === 'w') {
-      $('.board-b72b1').removeClass('blackTurn',250);
-      $('.board-b72b1').addClass('whiteTurn',250);
-    }
-    else {
-      $('.board-b72b1').removeClass('whiteTurn',250);
-      $('.board-b72b1').addClass('blackTurn',250);
-    }
+    if (this.inputEnabled === true) return;
+    this.inputEnabled = true;
+    $('.square-55d63').on('click', (event) => { this.squareClicked(event); });
   }
 
   disableInput() {
+    if (this.inputEnabled === false) return;
+    this.inputEnabled = false;
     $('.square-55d63').off('click');
+  }
+
+  changeTurn() {
+    if (this.game.turn() === 'w') {
+      $('.board-b72b1').removeClass('blackTurn',250);
+      $('.board-b72b1').addClass('whiteTurn',250,() => {
+        this.enableInput();
+        this.from = null;
+      });
+    }
+    else {
+      $('.board-b72b1').removeClass('whiteTurn',250);
+      $('.board-b72b1').addClass('blackTurn',250,() => {
+        this.enableInput();
+        this.from = null;
+      });
+    }
   }
 
   changeTurnTo(color) {

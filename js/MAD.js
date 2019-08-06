@@ -50,9 +50,11 @@ class MAD extends BaseChess {
 
   madMove(from,to,silent) {
     let move = super.move(from,to,silent);
+
     if (/c|e/.test(move.flags)) {
       this.game.remove(to);
     }
+    
     if (!silent) {
       setTimeout(() => {
         this.board.position(this.game.fen(),false);

@@ -16,17 +16,18 @@ class Fate extends BaseChess {
   }
 
   squareClicked(event) {
+
     // Find out the notation of the square and also the element representing the piece
     let square = $(event.currentTarget).attr('data-square');
     let piece = $(event.currentTarget).find('.piece-417db');
     let validPiece = (piece.length !== 0 && piece.attr('data-piece').indexOf(this.game.turn()) !== -1);
 
-    if (this.getMoves(square).length === 0) {
-      $(`.square-${square} .piece-417db`).effect('shake', { distance: 4 });
+    if (validPiece && this.getMoves(square).length === 0) {
+      $(`.square-${square} .piece-417db`).effect('shake', { times: 1, distance: 2 }, 50, () => {
+      });
       return;
     }
-
-    if (this.from === null && validPiece) {
+    else if (this.from === null && validPiece) {
       // We haven't selected a move yet + a piece of the correct colour was selected
       this.from = square;
       let moves = this.getMoves(square);

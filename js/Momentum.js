@@ -54,11 +54,9 @@ class Momentum extends BaseChess {
 
   momentumMove(from,to,silent) {
     // Make the initial move
-    console.log(from,to,silent,this.game.turn());
     let move = super.move(from,to,silent);
-    console.log(move);
 
-    if (move.type === 'n') {
+    if (move.piece === 'n') {
       return; // We don't slide knights
     }
 

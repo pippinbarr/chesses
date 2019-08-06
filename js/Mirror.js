@@ -15,8 +15,6 @@ class Mirror extends BaseChess {
     let oppositeFrom = files.charAt(7 - files.indexOf(from[0])) + ranks.charAt(7 - ranks.indexOf(from[1]));
     let oppositeTo = files.charAt(7 - files.indexOf(to[0])) + ranks.charAt(7 - ranks.indexOf(to[1]));
 
-    console.log(oppositeFrom,oppositeTo);
-
     let oppositePiece = this.game.get(oppositeFrom);
 
     // Make the original move

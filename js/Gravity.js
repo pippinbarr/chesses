@@ -32,7 +32,6 @@ class Gravity extends BaseChess {
     if (square !== undefined) options.square = square;
     let moves = this.game.moves(options);
 
-
     // Remember the real position
     let fen = this.game.fen();
     for (let i = moves.length - 1; i >= 0; i--) {
@@ -60,6 +59,7 @@ class Gravity extends BaseChess {
     if (!silent) {
       // Clear all highlights from the board (a new turn is about to begin)
       this.clearHighlights();
+      this.disableInput();
     }
 
     let movedPiece = this.game.get(from);

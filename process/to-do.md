@@ -13,6 +13,10 @@
 - ~~Investigate castling (make illegal in games where it can't work)~~
 - ~~Add a highlight (border?) to show whose turn it is (and don't highlight during no input, should help usability a lot)~~
 - ~~Reduce delay for no move message as it's annoyingly slow now (or allow play while it displays)~~
+- ~~Check all turn indicators~~
+- ~~Make the turn indicator swap time be a no-input time for the player~~
+
+- Wondering if most/all of the weird bugs are to do with bad input handling which I might have fixed?
 
 
 ## MAD
@@ -25,8 +29,7 @@
 - ~~Fix the unrotation~~
 - ~~Fix the gross animation (animate each piece one by one?)~~
 - ~~Handle standard checkmate and stalemate~~
-
-- Definite concerns about sometimes random behaviours (wondering if they're triggered by click during animation?)
+- ~~__MAYBE FIXED VIA INPUT__ Definite concerns about sometimes random behaviours (wondering if they're triggered by click during animation?)~~
 
 ## SLOTS
 
@@ -36,6 +39,7 @@
 - ~~Handle standard checkmate and stalemate~~
 - ~~Handle issue of "deselecting" a piece~~
 - ~~Handle issue of castling with a non-rook!~~
+- ~~__MAYBE FIXED VIA INPUT?__ Shitty bugs?~~
 
 ## EVERYONE
 
@@ -48,8 +52,10 @@
 - ~~Should the king slide? I mean... yes (but note that it could slide into checkmate)~~
 - ~~Handle standard checkmate and stalemate~~
 - ~~Make castling do what it should (both pieces should slide in that case!)~~
+- ~~__MAYBE FIXED VIA INPUT?__ Definitely saw some kind of bug with a pawn resurrecting after a move, unsure how to recreate right now (maybe loading invalid fen? Don't think so though... setting a weird position? Hmm.)~~
+- ~~__MAYBE FIXED VIA INPUT?__ Also just saw a king move instead of a bishop~~
 
-- Definitely saw some kind of bug with a pawn resurrecting after a move, unsure how to recreate right now (maybe loading invalid fen? Don't think so though... setting a weird position? Hmm.)
+- Queening when a pawn slides to the final rank???
 
 ## CLONES
 
@@ -59,8 +65,7 @@
 
 - ~~Checkmate etc.~~
 - ~~Need to check at squareClicked that the piece can make at least one legal move before proceeding - maybe I already do that? I do, but I should highlight the quantum set even in that special case (e.g. I should highlight all moves not just legal, providing there's at least one legal move - this may apply in other situations in terms of showing available moves on squareClicked - e.g. gravity? Oh wait I see I can do it by overriding getMoves instead I'll do that)~~
-
-- Saw a bug with a random-ass piece appearing on the board in the checkmate test case
+- ~~__MAYBE FIXED VIA INPUT?__ Saw a bug with a random-ass piece appearing on the board in the checkmate test case~~
 
 ## EVERYONE
 

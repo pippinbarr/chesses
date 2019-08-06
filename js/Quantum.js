@@ -56,7 +56,7 @@ class Quantum extends BaseChess {
     super.move(from,to,silent);
 
     let piece = this.game.get(to);
-    console.log(piece); // Got a null piece here once...
+    console.log(from,to,silent,piece); // Got a null piece here once...
     if (piece.type !== 'k') { // Only one king
       for (let i = 0; i < moves.length; i++) {
         if (moves[i].to === to) continue;

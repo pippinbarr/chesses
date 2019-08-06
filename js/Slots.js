@@ -20,15 +20,22 @@ class Slots extends BaseChess {
   }
 
   squareClicked(event) {
+    if (!this.inputEnabled) return;
+
+    this.disableInput();
+
     // Find out the notation of the square and also the element representing the piece
     let square = $(event.currentTarget).attr('data-square');
     let piece = this.game.get(square);
     let validPiece = (piece !== null && piece.color === this.game.turn());
 
     if (this.from === null && validPiece) {
+      // Check whether the piece selected could not move no matter what
       if (this.getPossibleMoves(square).length === 0) {
         // Invalid piece selection (it couldn't make a legal move no matter what piece it was)
-        $(`.square-${square} .piece-417db`).effect('shake', { distance: 4 });
+        $(`.square-${square} .piece-417db`).effect('shake', { times: 1, distance: 2 }, 50, () => {
+          this.enableInput();
+        });
         return;
       }
 
@@ -56,7 +63,15 @@ class Slots extends BaseChess {
       if ($(event.currentTarget).hasClass('highlight1-32417')) {
         let to = $(event.currentTarget).attr('data-square');
         this.move(this.from,to);
-      };
+      }
+      else {
+        // If they didn't click a highlight we'll need to reenable input for them to try again
+        this.enableInput();
+      }
+    }
+    else {
+      // They clicked something that doesn't matter, so just renable input for another attempt
+      this.enableInput();
     }
   }
 
@@ -69,16 +84,18 @@ class Slots extends BaseChess {
       else {
         let turnName = this.game.turn() === 'w' ? 'WHITE' : 'BLACK';
         this.showMessage("CANNOT MOVE");
-        $(`.square-${square} .piece-417db`).effect('shake', { distance: 4 });
+        $(`.square-${square} .piece-417db`).effect('shake', { times: 1, distance: 2 }, 50, () => {
+        });
         setTimeout(() => {
           this.hideMessage();
           this.changeTurnTo(this.game.turn() === 'w' ? 'b' : 'w');
-          this.setTurnIndicator();
+          this.changeTurn();
           this.from = null;
         },1000);
       }
     }
     else {
+      this.enableInput();
       this.from = square;
       this.highlightMoves(moves);
     }
@@ -126,20 +143,7 @@ class Slots extends BaseChess {
 
   moveCompleted() {
     this.from = null;
-    // let moves = this.getMoves();
-    // if (moves.length === 0) {
-    //   if (this.game.in_check()) {
-    //     // CHECKMATE
-    //     this.showResult(true,this.getTurn(false));
-    //   }
-    //   else {
-    //     // STALEMATE
-    //     this.showResult(false);
-    //   }
-    // }
-    // else {
-    this.enableInput();
-    // }
+    this.changeTurn();
   }
 
   getMoves(square) {
