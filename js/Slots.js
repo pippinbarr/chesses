@@ -50,6 +50,7 @@ class Slots extends BaseChess {
           this.replaceWithRandomPiece(square);
           this.board.position(this.game.fen(),false);
           randomSteps--;
+          attackSFX.play();
           if (randomSteps == 0) {
             clearInterval(slotInterval);
             this.selectMove(square);

@@ -53,10 +53,10 @@ class Quantum extends BaseChess {
       legal: false
     });
 
-    super.move(from,to,silent);
+    let move = super.move(from,to,silent);
 
     let piece = this.game.get(to);
-    console.log(from,to,silent,piece); // Got a null piece here once...
+
     if (piece.type !== 'k') { // Only one king
       for (let i = 0; i < moves.length; i++) {
         if (moves[i].to === to) continue;
@@ -66,6 +66,14 @@ class Quantum extends BaseChess {
 
     if (!silent) {
       this.board.position(this.game.fen(),true);
+      setTimeout(() => {
+        if (move && (move.flags.indexOf('c') !== -1 || move.flags.indexOf('e') !== -1)) {
+          for (let i = 0; i < moves.length; i++) captureSFX.play();
+        }
+        else {
+          for (let i = 0; i < moves.length; i++) placeSFX.play();
+        }
+      },this.config.moveSpeed * 1.1);
     }
   }
 }

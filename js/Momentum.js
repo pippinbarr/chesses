@@ -148,6 +148,11 @@ class Momentum extends BaseChess {
     if (!silent) {
       setTimeout(() => {
         this.board.position(this.game.fen(),true);
+        setTimeout(() => {
+          if (steps > 0) {
+            attackSFX.play();
+          }
+        }, this.config.moveSpeed * 1.1);
       }, this.config.moveSpeed * 1.1);
     }
 

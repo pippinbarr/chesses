@@ -71,11 +71,17 @@ class Gravity extends BaseChess {
       promotion: 'q' // NOTE: always promote to a queen for example simplicity
     };
 
-    this.game.move(move,{legal: false});
+    move = this.game.move(move,{legal: false});
 
 
     if (!silent) {
       this.board.position(this.game.fen(),true);
+      if (move && (move.flags.indexOf('c') !== -1 || move.flags.indexOf('e') !== -1)) {
+        captureSFX.play();
+      }
+      else {
+        placeSFX.play();
+      }
     }
 
     let files = "abcdefgh";
