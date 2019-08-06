@@ -2,13 +2,13 @@
 
 // The sound effects
 const placeSFX = new Howl({
-  src: ['assets/sounds/place.wav']
+  src: ['assets/sounds/place.wav', 'assets/sounds/place.mp3']
 });
 const captureSFX = new Howl({
-  src: ['assets/sounds/capture.wav']
+  src: ['assets/sounds/capture.wav', 'assets/sounds/capture.mp3']
 });
 const attackSFX = new Howl({
-  src: ['assets/sounds/attack.wav']
+  src: ['assets/sounds/attack.wav', 'assets/sounds/attack.mp3']
 });
 
 
