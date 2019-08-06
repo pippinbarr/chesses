@@ -265,3 +265,15 @@ Also implemented nice castling for momentum so the rook slides away just like th
 Overall I'm quite happy with how this thing is turning out. The chesses themselves are weird and I think probably a bit fun to play with. And then the implementation feels relatively solid (other than weird hard-to-reproduce bugs which are the worst). Again the benefits of working with established libraries/engines to do a bunch of the heavy lifting that would otherwise have killed me.
 
 I'd say this will be ready with a day or two more work, so I can schedule it perhaps for two weeks from now?
+
+---
+
+# "Done?" (Tuesday, 6 August 2019, 12:08PM)
+
+Okay I think it's done. Spent a lot of time on horrible input bug stuff but I think it's all taken care of? Classic issues around asynchronous event handling blah blah blah. Mostly it amounted to: if you click real fast on lots of squares you'll confuse the shit out the system and it will bug out. So mostly the fix was carefully allowing/disallowing input at appropriate moments. Seems to work?
+
+Also added queening to momentum chess because that makes sense. And renamed some of the modes to try to get closer to their essence (while remaining classy and wry).
+
+So I suppose it's now the press kit and some retroactive attempts at research questions? Related work?
+
+It really doesn't feel like this has been the most researchy of my games, especially compared to the kind of examinations of platforms and design tweaks that the punishment series has represented, but it's been really quite fun to make and does at least do something along the lines of thinking through how much games change with only small additions to their rules.
