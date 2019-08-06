@@ -95,9 +95,17 @@ class Slots extends BaseChess {
       }
     }
     else {
-      this.enableInput();
-      this.from = square;
-      this.highlightMoves(moves);
+      this.flipTurn();
+      if (this.game.in_check()) {
+        this.flipTurn();
+        this.showResult(true,this.game.turn());
+      }
+      else {
+        this.flipTurn();
+        this.enableInput();
+        this.from = square;
+        this.highlightMoves(moves);
+      }
     }
   }
 
