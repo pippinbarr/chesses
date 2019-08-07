@@ -23,8 +23,8 @@ class Gravity extends BaseChess {
     // this.board.position(this.game.fen(),false);
 
     // PROMOTION POSITION
-    this.game.load("5Rnk/7n/7R/8/8/8/pPPPPPPK/7P w KQkq - 0 7");
-    this.board.position(this.game.fen(),false);
+    // this.game.load("5Rnk/7n/7R/8/8/8/pPPPPPPK/7P w KQkq - 0 7");
+    // this.board.position(this.game.fen(),false);
   }
 
   getMoves(square) {
