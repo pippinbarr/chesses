@@ -7,7 +7,7 @@ _Your pieces slide! Your pieces fall! Your pieces do the strangest things! It's 
 ## The basics
 
 * Developer: [Pippin Barr](http://www.pippinbarr.com/)
-* Release: ? ? 2019
+* Release: 7 August 2019
 * Platform: Browser (desktop and mobile)
 * Code repository: https://github.com/pippinbarr/chesses
 * Price: $0.00
