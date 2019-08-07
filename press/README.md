@@ -61,7 +61,7 @@ Gambling Chess
 
 ## Press
 
-- Coming soon?
+- Cory Doctorow. [CHESSES: chess variants for nonexperts, nonplayers, and the very playful](https://boingboing.net/2019/08/07/ludic-chess.html). Boing Boing. 7 August 2019
 
 ## Additional Links
 
