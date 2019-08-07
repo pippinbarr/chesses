@@ -17,6 +17,9 @@ function setup() {
   let title = "CHESSES";
   $('#title').text(`${title}`)
 
+  let author = 'BY <a href="https://www.pippinbarr.com/" target="_blank">&nbsp;PIPPIN BARR</a>';
+  $('#author').html(`${author}`)
+
 
   let menu = [
     {
@@ -24,12 +27,12 @@ function setup() {
       instructions: "Do or not do."
     },
     {
-      title: "CROWDED",
-      instructions: "Everyone's here."
+      title: "CHANCE",
+      instructions: "The piece you choose to move is transformed into a randomly selected piece before moving."
     },
     {
-      title: "GAMBLING",
-      instructions: "The piece you choose to move is transformed into a randomly selected piece before moving."
+      title: "CROWDED",
+      instructions: "Everyone's here."
     },
     {
       title: "GRAVITY",
@@ -80,17 +83,18 @@ function setup() {
     $('#menu').append($item);
   }
 
-  $('#title').on('click', titleClicked);
-
   $('.menu-item').on('click', menuClicked);
 }
 
 function titleClicked () {
   $('.instruction').slideUp();
   $('#message').slideUp();
+  $('#title').removeClass('active');
   $('#game').slideUp(() => {
     $('.menu-item').slideDown();
+    $('#author').slideDown();
     $('.menu-item').addClass('active');
+    $('.menu-item').on('click', menuClicked);
   });
 }
 
@@ -117,7 +121,7 @@ function menuClicked () {
     chess = new Random();
     break;
 
-    case 'GAMBLING':
+    case 'CHANCE':
     chess = new Slots();
     break;
 
@@ -142,7 +146,14 @@ function menuClicked () {
     break;
   }
 
+  $('#title').addClass('active');
+  $('#title.active').on('click', titleClicked);
+
   $('.menu-item').removeClass('active');
+
+  $('.menu-item').off('click');
+
+  $('#author').slideUp();
   $('.menu-item').not(`#${$(this).data('game')}`).slideUp(500,() => {
     // $('#menu').hide();
     $('#game').slideDown(() => {

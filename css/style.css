@@ -39,6 +39,27 @@ body {
   /* margin-bottom: 0.5em; */
 }
 
+#title.active:hover {
+  cursor: pointer;
+}
+
+a {
+  color: yellow;
+  /* text-decoration: none; */
+}
+
+#author {
+  font-size: 0.75em;
+  line-height: 1em;
+  letter-spacing: 1em;
+  color: yellow;
+  text-align: center;
+  padding-left: 1em;
+  padding-top: 1em;
+
+  /* margin-bottom: 0.5em; */
+}
+
 .menu-item {
   color: white;
   font-size: 1.5em;
@@ -51,6 +72,7 @@ body {
 .menu-item.active:hover {
   background-color: white;
   color: black;
+  cursor: pointer;
 }
 
 .instruction {
@@ -117,6 +139,7 @@ body {
 @media only screen and (min-device-width: 768px) {
   body {
     font-size: 1em;
+    padding-top: 2em;
   }
 
   #wrapper {
