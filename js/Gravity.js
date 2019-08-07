@@ -22,6 +22,9 @@ class Gravity extends BaseChess {
     // this.game.load("5Rnk/7n/7R/8/8/8/7R/6QK w KQkq - 0 7");
     // this.board.position(this.game.fen(),false);
 
+    // PROMOTION POSITION
+    this.game.load("5Rnk/7n/7R/8/8/8/pPPPPPPK/7P w KQkq - 0 7");
+    this.board.position(this.game.fen(),false);
   }
 
   getMoves(square) {
@@ -72,7 +75,7 @@ class Gravity extends BaseChess {
     };
 
     move = this.game.move(move,{legal: false});
-
+    if (move.flags.indexOf('p') !== -1) movedPiece.type = 'q';
 
     if (!silent) {
       this.board.position(this.game.fen(),true);
