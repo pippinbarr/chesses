@@ -179,6 +179,7 @@ class BaseChess {
       }
     }
     else {
+      if (this.gameOver) return;
       this.changeTurn();
       this.hideMessage();
     }
@@ -197,6 +198,7 @@ class BaseChess {
   }
 
   changeTurn() {
+    if (this.gameOver) return;
     if (this.game.turn() === 'w') {
       $('.board-b72b1').removeClass('blackTurn',250);
       $('.board-b72b1').addClass('whiteTurn',250,() => {
@@ -256,7 +258,7 @@ class BaseChess {
       this.game.turn()
     }
     else {
-      return this.game.turn() === 'w' ? 'b' : 'w'
+      return this.game.turn() === 'w' ? 'b' : 'w';
     }
   }
 }

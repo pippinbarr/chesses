@@ -54,12 +54,13 @@ class MAD extends BaseChess {
     if (/c|e/.test(move.flags)) {
       this.game.remove(to);
     }
-    
+
     if (!silent) {
       setTimeout(() => {
         this.board.position(this.game.fen(),false);
         if (move.piece === 'k' && /c/.test(move.flags)) {
-          this.showResult(true,this.getTurn(true));
+          this.showResult(true,move.color === 'w' ? 'b' : 'w');
+          this.gameOver = true;
         }
       },this.config.moveSpeed);
     }

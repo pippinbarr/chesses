@@ -25,6 +25,15 @@ class Gravity extends BaseChess {
     // PROMOTION POSITION
     // this.game.load("5Rnk/7n/7R/8/8/8/pPPPPPPK/7P w KQkq - 0 7");
     // this.board.position(this.game.fen(),false);
+
+    // MISSING CHECK TEST POSITION?
+    // this.game.load("rnbqkbnr/ppp1pppp/1Bn5/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 7");
+    // this.board.position(this.game.fen(),false);
+
+    // UPWARD CAPTURE TEST POSITION?
+    // this.game.load("rnbqkbnR/ppp1pppp/1Bn5/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 7");
+    // this.board.position(this.game.fen(),false);
+
   }
 
   getMoves(square) {
@@ -75,6 +84,7 @@ class Gravity extends BaseChess {
     };
 
     move = this.game.move(move,{legal: false});
+
     if (move.flags.indexOf('p') !== -1) movedPiece.type = 'q';
 
     if (!silent) {
@@ -96,10 +106,10 @@ class Gravity extends BaseChess {
     let toFileIndex = files.indexOf(toFile);
 
     let placed = false;
+    if (!silent) console.log("Looking to make moved piece fall...");
     for (let f = toFileIndex + 1; f < 8; f++) {
       let square = files[f] + toRank;
       let piece = this.game.get(square);
-
       if (piece !== null) {
         this.game.remove(toFile + toRank);
         this.game.put({ type: movedPiece.type, color: movedPiece.color}, files[f - 1] + toRank);
@@ -112,6 +122,7 @@ class Gravity extends BaseChess {
       let square = files[7] + toRank;
       this.game.remove(toFile + toRank);
       this.game.put({ type: movedPiece.type, color: movedPiece.color}, square);
+      console.log("Didn't place piece, so putting it at the bottom.")
     }
 
     if (!silent) {
@@ -129,7 +140,6 @@ class Gravity extends BaseChess {
 
     let fromFileIndex = files.indexOf(fromFile);
 
-
     if (silent) {
       for (let f = fromFileIndex - 1; f >= 0; f--) {
         let square = files[f] + fromRank;
@@ -146,13 +156,14 @@ class Gravity extends BaseChess {
         let square = files[f] + fromRank;
         let piece = this.game.get(square);
         if (piece !== null) {
+          console.log("Moving down a " + piece.type);
           this.game.remove(square);
           this.game.put({ type: piece.type, color: piece.color}, files[f+1] + fromRank);
           this.board.position(this.game.fen(),true);
           setTimeout(() => { attackSFX.play(); }, this.config.moveSpeed*1.1);
         }
         f--;
-        if (f < 0 || piece === null) {
+        if (f < 0) {// || piece === null) {
           clearInterval(gravityInterval);
 
           // this.changeTurnTo(this.game.turn() === 'w' ? 'b' : 'w');
