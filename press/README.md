@@ -62,6 +62,7 @@ Gambling Chess
 ## Press
 
 - Cory Doctorow. [CHESSES: chess variants for nonexperts, nonplayers, and the very playful](https://boingboing.net/2019/08/07/ludic-chess.html). Boing Boing. 7 August 2019
+- Heather Alexandra. [Jumbling The Rules Of Chess, Eight Different Ways](https://kotaku.com/jumbling-the-rules-of-chess-eight-different-ways-1837078047). Kotaku. 8 August 2019.
 
 ## Additional Links
 
