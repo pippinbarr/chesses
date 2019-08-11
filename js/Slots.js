@@ -17,6 +17,10 @@ class Slots extends BaseChess {
     // CASTLING POSITION
     // this.game.load("r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2Q w KQkq - 0 7");
     // this.board.position(this.game.fen(),false);
+
+    // "PROMOTION" POSITION
+    // this.game.load("PPP1k1PP/pppppppp/8/8/8/8/PPPPPPPp/R3Kppp w KQkq - 0 7");
+    // this.board.position(this.game.fen(),false);
   }
 
   squareClicked(event) {
@@ -78,7 +82,10 @@ class Slots extends BaseChess {
 
   selectMove(square) {
     let moves = this.getMoves(square);
-    if (moves.length === 0) {
+    let piece = this.game.get(square);
+    let strandedPawn = piece.type === 'p' && ((piece.color === 'w' && square[1] === '8') || (piece.color === 'b' && square[1] === '1'));
+    // console.log(piece,square[1]);
+    if (moves.length === 0 || strandedPawn) {
       if (this.game.in_check()) {
         this.showResult(true,this.getTurn(false));
       }

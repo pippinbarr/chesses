@@ -63,6 +63,8 @@ Gambling Chess
 
 - Cory Doctorow. [CHESSES: chess variants for nonexperts, nonplayers, and the very playful](https://boingboing.net/2019/08/07/ludic-chess.html). Boing Boing. 7 August 2019
 - Heather Alexandra. [Jumbling The Rules Of Chess, Eight Different Ways](https://kotaku.com/jumbling-the-rules-of-chess-eight-different-ways-1837078047). Kotaku. 8 August 2019.
+- Tyler Wilde. [This confounding game is chess, but with gravity](https://www.pcgamer.com/this-confounding-game-is-chess-but-with-gravity/). PC Gamer. 9 August 2019.
+- Jay Castello. [Teach an old game new tricks in Pippin Barr's Chesses](https://www.rockpapershotgun.com/2019/08/10/teach-an-old-game-new-tricks-in-pippin-barrs-chesses/). Rock, Paper, Shotgun. 10 August 2019.
 
 ## Additional Links
 
