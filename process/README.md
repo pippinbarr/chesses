@@ -14,7 +14,7 @@ A journal that includes high-level reflections on the design and development pro
 ### Related Work (tbd)
 Links to texts, images, and other media that are related to this project in some way.
 
-### [Research Questions](./research-questions.md)
+### Research Questions (tbd)
 Attempts to frame what's meaningful about this project.
 
 ### [Press Kit](../press/README.md)
