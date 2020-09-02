@@ -67,6 +67,7 @@ Gambling Chess
 - Jay Castello. [Teach an old game new tricks in Pippin Barr's Chesses](https://www.rockpapershotgun.com/2019/08/10/teach-an-old-game-new-tricks-in-pippin-barrs-chesses/). Rock, Paper, Shotgun. 10 August 2019.
 - Alvy. [Los extraños, imaginativos y entretenidos ajedreces de Pippin Barr](https://www.microsiervos.com/archivo/juegos-y-diversion/ajedreces-pippin-barr-aleatorio-cuantico.html). Microsiervos. 13 August 2019.
 - Jason Kottke. [Playful Chess Variants](https://kottke.org/19/08/playful-chess-variants). Kottke.org. 23 August 2019.
+- [A series of different takes on the classic game of Chess](https://theindieweb.com/a-series-of-different-takes-on-the-classic-game-of-chess./). The Indie Web. 1 September 2020.
 
 ## Additional Links
 
