@@ -10,7 +10,7 @@ class Gravity extends BaseChess {
       transform: 'rotate(90deg)'
     });
 
-    $('.square-55d63').css({
+    $('.piece-417db').css({
       transform: 'rotate(-90deg)'
     });
 
