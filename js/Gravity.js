@@ -9,10 +9,9 @@ class Gravity extends BaseChess {
     $('#board').css({
       transform: 'rotate(90deg)'
     });
+    let stable_rotate = '.square-55d63 .piece-417db{transform: rotate(-90deg)}'
+    $('#pieces-rotation').html(stable_rotate)
 
-    $('.piece-417db').css({
-      transform: 'rotate(-90deg)'
-    });
 
     // CHECKMATE POSITION
     // this.game.load("2rnkbnr/4pppp/4pbpp/7q/8/3QPPPP/3RPPPP/2NBKBNR w KQkq - 0 7");

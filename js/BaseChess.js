@@ -38,9 +38,8 @@ class BaseChess {
       transform: 'rotate(0deg)'
     });
 
-    $('.square-55d63').css({
-      transform: 'rotate(0deg)'
-    });
+    let stable_rotate = '.square-55d63 .piece-417db{transform: rotate(0deg)}'
+    $('#pieces-rotation').html(stable_rotate)
 
     this.changeTurn();
     this.enableInput();
