@@ -2,7 +2,7 @@
 
 _Your pieces slide! Your pieces fall! Your pieces do the strangest things! It's chesses unlike the chess you normally chess! Bet you can't chess just one!_
 
-#### [Play the current build of _Chesses_](https://pippinbarr.github.io/chesses)
+#### [Play online](https://pippinbarr.github.io/chesses) (desktop and mobile)
 
 ---
 
